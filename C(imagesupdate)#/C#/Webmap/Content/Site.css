@@ -1,0 +1,167 @@
+﻿body {
+   background-image: url("https://s-media-cache-ak0.pinimg.com/originals/6e/b6/03/6eb603a02a3017e8606de215c13ac996.jpg"); 
+ }
+
+#input-box{
+    text-align: center;
+}
+#popout {
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    background-color: seagreen;
+    padding-top: 25px;
+      padding-bottom: 25px;
+}
+#landing-banner {
+
+    max-width: 100%;
+    margin-top:1px;
+    color: white;
+}
+
+#landing-content{
+    font-size: 550%;
+    text-align: center;
+    color: white;
+
+}
+#text {
+    color: white;
+
+}
+#rad {
+font: 25px arial, sans-serif;
+}
+#search-heading {
+    padding-top: 5px;
+    text-align: center;
+     font-family: cursive;
+     font-size: 30px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+ 
+}
+
+.res-image{
+    float: left;
+}
+
+#landing-main p{
+    text-align: center;
+}
+#landing-main {
+    padding-top: 55px;
+}
+#search-heading span{
+    font-size: 80px;
+}
+
+.result-cards{
+    display: inline-block;
+    padding-left: 10px;
+
+}
+
+#result-side-bar{
+    display: inline-block;
+     
+}
+
+#map-canvas{
+    display: inline-block;
+    max-width:60%;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    max-width: 85%;
+    min-height: 900px;
+    background-color: white;
+}
+
+.container{
+    max-width: 80%;
+    
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+.details {
+    background-color:	white;
+
+}
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 350px;
+}
+
+
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+nav{
+    padding: 20px 0px 0px 20px; 
+    float:left;
+    width: 160px;
+    text-decoration: none; 
+  
+    height: 1000px;
+}
+
+nav form{
+    display: inline;
+}
+@import "http://fonts.googleapis.com/css?family=Roboto:300,400,500,700";
+
+.container { margin-top: 20px; }
+.mb20 { margin-bottom: 20px; } 
+
+hgroup { padding-left: 15px; border-bottom: 1px solid #ccc; }
+hgroup h1 { font: 500 normal 1.625em "Roboto",Arial,Verdana,sans-serif; color: #2a3644; margin-top: 0; line-height: 1.15; }
+hgroup h2.lead { font: normal normal 1.125em "Roboto",Arial,Verdana,sans-serif; color: #2a3644; margin: 0; padding-bottom: 10px; }
+
+.search-result .thumbnail { border-radius: 0 !important; }
+.search-result:first-child { margin-top: 0 !important; }
+.search-result { margin-top: 20px; }
+.search-result .col-md-2 { border-right: 1px dotted #ccc; min-height: 140px; }
+.search-result ul { padding-left: 0 !important; list-style: none;  }
+.search-result ul li { font: 400 normal .85em "Roboto",Arial,Verdana,sans-serif;  line-height: 30px; }
+.search-result ul li i { padding-right: 5px; }
+.search-result .col-md-7 { position: relative; }
+.search-result h3 { font: 500 normal 1.375em "Roboto",Arial,Verdana,sans-serif; margin-top: 0 !important; margin-bottom: 10px !important; }
+.search-result h3 > a, .search-result i { color: #248dc1 !important; }
+.search-result p { font: normal normal 1.125em "Roboto",Arial,Verdana,sans-serif; } 
+.search-result span.plus { position: absolute; right: 0; top: 126px; }
+.search-result span.plus a { background-color: #248dc1; padding: 5px 5px 3px 5px; }
+.search-result span.plus a:hover { background-color: #414141; }
+.search-result span.plus a i { color: #fff !important; }
+.search-result span.border { display: block; width: 97%; margin: 0 15px; border-bottom: 1px dotted #ccc; }
+
+
+
+
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+.style-4 input[type="text"] {
+  padding: 10px;
+  border: none;
+  border-bottom: solid 2px #c9c9c9;
+  transition: border 0.3s;
+}
+.style-4 input[type="text"]:focus,
+.style-4 input[type="text"].focus {
+  border-bottom: solid 2px #969696;
+}

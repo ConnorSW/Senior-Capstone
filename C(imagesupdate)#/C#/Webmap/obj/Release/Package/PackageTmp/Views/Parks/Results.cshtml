@@ -1,0 +1,256 @@
+﻿@using Webmap.Models;
+@using Newtonsoft.Json;
+@model ResultsViewModel
+
+@{
+    ViewBag.Title = "Results";
+}
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOJOJHx6AZoXF2rQVV0_1vBKgeDykAOMU&callback=initMap">
+</script>
+
+@{
+    List<Park> jParks = new List<Park>();
+
+    foreach (var item in Model.Parks)
+    {
+
+        Park addpark = new Park();
+        addpark.Lng = item.Lng;
+        addpark.Lat = item.Lat;
+        addpark.Name = item.Name;
+        addpark.Desc = item.Desc;
+        addpark.City = item.City;
+        addpark.State = item.State;
+        addpark.Street_1 = item.Street_1;
+        addpark.pID = item.pID;
+        addpark.Country = item.Country;
+        addpark.ID = item.ID;
+        addpark.Postal = item.Postal;
+        jParks.Add(addpark);
+    }
+}
+<style>
+    #map_canvas img {
+        max-width: 60%;
+    }
+</style>
+
+<!-- This css is to give a nice big popup "info window" when a marker is clicked on the map -->
+<style>
+    .infoDiv {
+        height: 200px;
+        width: 300px;
+        -webkit-user-select: none;
+        background-color: white;
+    }
+</style>
+<br />
+
+
+<!-- Enclose the Javascript in a "section" so that it is rendered in the correct order after scripts have been loaded etc -->
+@section scripts {
+    <section class="scripts">
+     
+        <script type="text/javascript">
+
+    //<!-- This code tells the browser to execute the "Initialize" method only when the complete document model has been loaded. -->
+            addEventListener('onload',initMap())
+            function initMap() {
+                var parks = @Html.Raw(Json.Encode(jParks));
+
+                // Google has tweaked their interface somewhat - this tells the api to use that new UI
+                google.maps.visualRefresh = true;
+                
+                var Augusta = new google.maps.LatLng(33.4735, -82.0105);
+
+                // These are options that set initial zoom level, where the map is centered globally to start, and the type of map to show
+                var mapOptions = {
+                    zoom: 10,
+                    center: Augusta,
+                    mapTypeId: google.maps.MapTypeId.G_NORMAL_MAP
+                };
+
+                // This makes the div with id "map_canvas" a google map
+                var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+                var data="";
+                // Using the JQuery "each" selector to iterate through the JSON list and drop marker pins
+                //$('#checkbox').change(funciton(){    });
+                $.each(parks, function (i, item) {
+                    var marker = new google.maps.Marker({
+                        'position': new google.maps.LatLng(item.Lat, item.Lng),//(item.GeoLong, item.GeoLat),
+                        'map': map,
+                        'title': item.Name
+                    });
+
+                    // Make the marker-pin blue!
+                    marker.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png')
+
+                    var link = '<a href="http://maps.google.com/maps?saddr=Current+Location&daddr='+item.Street_1+', '+item.City+', '+item.State+'">Get Directions</a>'
+                    var img = '<img src="/Images/'+item.pID+'/thumbnail.jpg" alt="Lorem ipsum"" />'
+                    var pAddress = item.Street_1+', '+item.City+', '+item.State+' '+item.Postal
+                    var detPage = '<a href="/Parks/Details/'+item.ID+'">More Information</a>'
+
+
+                    // put in some information about each json object - in this case, the opening hours.
+                    var infowindow = new google.maps.InfoWindow({
+
+                        content: "<div class='infoDiv'><h2>" + item.Name +"</h2>"+img+"<br />"+pAddress+"<br />"+detPage+"<br />"+link+"</div></div>"
+                    });
+
+                    // finally hook up an "OnClick" listener to the map so it pops up out info-window when the marker-pin is clicked!
+                    google.maps.event.addListener(marker, 'click', function () {
+                        infowindow.open(map, marker);
+                    });
+
+                })
+            }
+        </script>
+    </section>
+}
+<br>
+<br>
+<br>
+<h2>eCPAT <strong>Park</strong> Search</h2>
+<!-- This is the div that will contain the Google Map -->
+<div id="map_canvas" style="height: 350px; position:relative; border-color:seagreen; border-style:ridge"></div>
+<div class="row">
+    <div class="col-sm-2">
+        <br />
+        New Search
+        <div id="input-box">
+            <form method="get" action="~/Parks/Results">
+                Select Search Radius:
+                <input type="radio" name="checkbox" value=1.770328 checked> 1 mile
+                <br> <input type="radio" name="checkbox" value=8.04672> 5 miles
+                <br><input type="radio" name="checkbox" value=16.09344> 10 miles
+                <br>
+                <input type="text" name="SearchString" size="15" placeholder="New Search" autocomplete="on">
+            </form>
+            </div>
+            <br /> &nbsp; &nbsp;
+            <br /><br />
+            &nbsp; <br />
+            Filter Results by Amenities:
+            <hr />
+            <form action="~/Parks/Results" method="post">
+                <b>Facilities:</b><br/>
+                @foreach (var item in ViewBag.aList)
+                {
+                    if (item.Type=="f")
+                    {
+                    <input type="checkbox" name="@item.AmenityName" value="@item.AmenityName" /> @item.AmenityName<br>
+                    }
+                }
+              <b>Amenities:</b><br/>
+                @foreach (var item in ViewBag.aList)
+                {
+                    if (item.Type == "a")
+                    {
+                        <input type="checkbox" name="@item.AmenityName" value="@item.AmenityName" /> @item.AmenityName<br>
+                    }
+                }
+                @foreach (var item in Model.Parks)
+                {
+                <input type="hidden" name="keys" value="@item.ID" />
+                }
+                <br /><br />
+                <input type="submit">
+            </form>
+        </div>
+    <div class="col-sm-10">
+        <div class="container">
+            <hgroup class="mb20">
+                <h1>Search Results</h1>
+               @{int count = 0; }
+                @foreach (var item in Model.Parks)
+                {
+                    count++;
+                }
+                <h2 class="lead"><strong class="text-danger">@(count) </strong> park results were found<strong class="text-danger"></strong></h2>
+            </hgroup>      
+            <section class="col-xs-12 col-sm-6 col-md-12">
+               
+                 @foreach (var item in Model.Parks)
+                 {
+                     decimal amenCount = 0;
+                     decimal fCount = 0;
+                     decimal rating = 0;
+                     foreach (var amen in item.ParkAmenities)
+                     {
+                         if (amen.Amenity.Type == "a")
+                         {
+                             amenCount++;
+                         }
+                         if (amen.Amenity.Type == "f")
+                         {
+                             fCount++;
+                         }
+                     }
+                     rating = ((amenCount + fCount) / 27) * 100;
+                     rating = Math.Truncate(rating);
+                     //var prkName = item.Name;
+                     var pID = item.pID;
+                     var parkName = pID;// to get park folder
+                     var pathname = "~/Images/" + parkName;
+                     var filename = Server.MapPath(pathname);//to create physical path for server to read
+
+                     DirectoryInfo di = new DirectoryInfo(filename);//creates directory reference
+                     if (di.Exists)
+                     {
+                         FileInfo[] fiarray = di.GetFiles();//creates array of files in given directory reference
+                         ViewBag.Image1 = parkName + "/" + fiarray[0].Name;
+                     }
+                    <article class="search-result row">
+                        <div class="col-xs-12 col-sm-12 col-md-3">
+                            <a href="@Url.Action("Details","Parks", new { id = item.ID })" title="" class="thumbnail"><img src="~/Images/@pID/thumbnail.jpg" style="border-radius: 25px;" alt="Lorem ipsum" /></a>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
+                                <h3><a href="@Url.Action("Details","Parks", new { id = item.ID })" title="">@Html.DisplayFor(modelItem => item.Name)</a></h3>
+                            <strong>Address:</strong>
+                            @Html.DisplayFor(modelItem => item.Street_1)
+                            @Html.DisplayFor(modelItem => item.City),
+                            @Html.DisplayFor(modelItem => item.State)
+                            @Html.DisplayFor(modelItem => item.Postal)
+                            <br>
+                                <table>
+                                    <tr>
+                                        <th>Summary Attribute</th>
+                                        <th>Value</th>
+                                    </tr>
+                                    <tr>
+                                        <td> Total Park Facilties </td>
+                                        <td> @fCount </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Total Park Amenites </td>
+                                        <td> @amenCount</td>
+                                    </tr>
+                                    <tr>
+                                    <td> Park Qaulty Index </td>
+                                    <td> @rating %</td>
+                                    </tr>
+                                </table>
+                                <br>
+                            <table>
+                                <tr>
+                                    <td>
+                                    <img style="width:45px;" src="~/Images/info.png" border="0"/>
+                                    @Html.ActionLink("More Information", "Details", new { id = item.ID }) 
+                                    </td>
+                                    <td>
+                                        <img style="width:45px;" src="~/Images/marker.png" border="0" />
+                                    <a href='@string.Format("http://maps.google.com/maps?saddr=Current+Location&daddr={0} {1} {2}", item.Street_1, item.City, item.State)'>Get Directions</a>
+                                    </td>
+                                </tr>
+                           </table>
+                        </div>
+                        <span class="clearfix borda"></span>
+                    </article>
+                    <hr>
+                }
+            </section>
+        </div>
+        </div>
+    </div>
+

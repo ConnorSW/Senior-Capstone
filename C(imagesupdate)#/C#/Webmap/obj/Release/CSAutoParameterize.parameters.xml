@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="ECPATContext-Web.config Connection String" description="ECPATContext Connection String used in web.config by the application to access the database." defaultValue="Server=tcp:ecpatparksearch.database.windows.net,1433;Initial Catalog=ecpatParkSearch;Persist Security Info=False;User ID=user;Password=P@ssword;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=60;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Connor\\Desktop\\C\(imagesupdate\)\#\ \(3\)\\C\(imagesupdate\)\#\\C\(imagesupdate\)\#\\C\#\\Webmap\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ECPATContext']/@connectionString" />
+  </parameter>
+</parameters>

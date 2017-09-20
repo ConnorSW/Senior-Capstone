@@ -1,0 +1,1264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{53523810-CF31-411E-B62C-A0F499966DF5}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Webmap</RootNamespace>
+    <AssemblyName>Webmap</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\ParksController.cs" />
+    <Compile Include="fonts\DAL\ECPATContext.cs" />
+    <Compile Include="fonts\DAL\ECPATInitializer.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Amenity.cs" />
+    <Compile Include="Models\Park.cs" />
+    <Compile Include="Models\ParkAmenity.cs" />
+    <Compile Include="Models\ResultsViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Images\13\Extra Images\IMG_20160622_102721.jpg" />
+    <Content Include="Images\13\Extra Images\IMG_20160622_102745.jpg" />
+    <Content Include="Images\13\Extra Images\IMG_20160622_102755.jpg" />
+    <Content Include="Images\13\Extra Images\IMG_20160622_102823.jpg" />
+    <Content Include="Images\13\Extra Images\IMG_20160622_102935.jpg" />
+    <Content Include="Images\13\Extra Images\IMG_20160622_103042.jpg" />
+    <Content Include="Images\13\Extra Images\IMG_20160622_103906.jpg" />
+    <Content Include="Images\13\Extra Images\IMG_20160622_103932.jpg" />
+    <Content Include="Images\13\Extra Images\IMG_20160622_103950.jpg" />
+    <Content Include="Images\13\IMG_20160622_102833.jpg" />
+    <Content Include="Images\13\IMG_20160622_102926.jpg" />
+    <Content Include="Images\13\IMG_20160622_103019.jpg" />
+    <Content Include="Images\13\thumbnail.jpg" />
+    <Content Include="Images\14\Extra Images\IMG_20160613_105747.jpg" />
+    <Content Include="Images\14\Extra Images\IMG_20160613_105807.jpg" />
+    <Content Include="Images\14\Extra Images\IMG_20160613_110312.jpg" />
+    <Content Include="Images\14\Extra Images\IMG_20160613_110414.jpg" />
+    <Content Include="Images\14\Extra Images\IMG_20160613_110518.jpg" />
+    <Content Include="Images\14\Extra Images\IMG_20160613_112058.jpg" />
+    <Content Include="Images\14\IMG_2016013.jpg" />
+    <Content Include="Images\14\IMG_20160613_111034.jpg" />
+    <Content Include="Images\14\IMG_20160613_111923.jpg" />
+    <Content Include="Images\14\thumbnail.jpg" />
+    <Content Include="Images\15\Extra Images\IMG_20160620_092240.jpg" />
+    <Content Include="Images\15\Extra Images\IMG_20160620_092959.jpg" />
+    <Content Include="Images\15\Extra Images\IMG_20160620_093139.jpg" />
+    <Content Include="Images\15\Extra Images\IMG_20160620_094413.jpg" />
+    <Content Include="Images\15\Extra Images\IMG_20160620_094445.jpg" />
+    <Content Include="Images\15\Extra Images\IMG_20160620_094809.jpg" />
+    <Content Include="Images\15\IMG_20160620_092316.jpg" />
+    <Content Include="Images\15\IMG_20160620_093122.jpg" />
+    <Content Include="Images\15\IMG_20160620_093938.jpg" />
+    <Content Include="Images\15\thumbnail.jpg" />
+    <Content Include="Images\16\Extra Images\IMG_20160620_092240.jpg" />
+    <Content Include="Images\16\Extra Images\IMG_20160620_094022.jpg" />
+    <Content Include="Images\16\Extra Images\IMG_20160620_094819.jpg" />
+    <Content Include="Images\16\Extra Images\IMG_20160620_095142.jpg" />
+    <Content Include="Images\16\Extra Images\IMG_20160620_095344.jpg" />
+    <Content Include="Images\16\Extra Images\IMG_20160620_095414.jpg" />
+    <Content Include="Images\16\Extra Images\IMG_20160620_095604.jpg" />
+    <Content Include="Images\16\Extra Images\IMG_20160620_100237.jpg" />
+    <Content Include="Images\16\Extra Images\IMG_20160620_100550.jpg" />
+    <Content Include="Images\16\Extra Images\IMG_20160620_101719.jpg" />
+    <Content Include="Images\16\Extra Images\IMG_20160620_101732.jpg" />
+    <Content Include="Images\16\Extra Images\IMG_20160620_101740.jpg" />
+    <Content Include="Images\16\Extra Images\IMG_20160620_104350.jpg" />
+    <Content Include="Images\16\IMG_20160620_095611.jpg" />
+    <Content Include="Images\16\IMG_20160620_095815.jpg" />
+    <Content Include="Images\16\IMG_20160620_101049.jpg" />
+    <Content Include="Images\16\thumbnail.jpg" />
+    <Content Include="Images\17\Extra Images\IMG_20160620_103407.jpg" />
+    <Content Include="Images\17\Extra Images\IMG_20160620_103618.jpg" />
+    <Content Include="Images\17\Extra Images\IMG_20160620_103657.jpg" />
+    <Content Include="Images\17\Extra Images\IMG_20160620_103934.jpg" />
+    <Content Include="Images\17\Extra Images\IMG_20160620_103950.jpg" />
+    <Content Include="Images\17\Extra Images\IMG_20160620_104016.jpg" />
+    <Content Include="Images\17\Extra Images\IMG_20160620_104248.jpg" />
+    <Content Include="Images\17\Extra Images\IMG_20160620_104350.jpg" />
+    <Content Include="Images\17\IMG_20160620_103600.jpg" />
+    <Content Include="Images\17\IMG_20160620_103651.jpg" />
+    <Content Include="Images\17\IMG_20160620_104301.jpg" />
+    <Content Include="Images\17\thumbnail.jpg" />
+    <Content Include="Images\18\Extra Images\IMG_20160620_113026.jpg" />
+    <Content Include="Images\18\Extra Images\IMG_20160620_113040.jpg" />
+    <Content Include="Images\18\Extra Images\IMG_20160620_113050.jpg" />
+    <Content Include="Images\18\Extra Images\IMG_20160620_113113.jpg" />
+    <Content Include="Images\18\Extra Images\IMG_20160620_113125.jpg" />
+    <Content Include="Images\18\Extra Images\IMG_20160620_113306.jpg" />
+    <Content Include="Images\18\Extra Images\IMG_20160620_113328.jpg" />
+    <Content Include="Images\18\Extra Images\IMG_20160620_113443.jpg" />
+    <Content Include="Images\18\Extra Images\IMG_20160620_113639.jpg" />
+    <Content Include="Images\18\Extra Images\IMG_20160620_113641.jpg" />
+    <Content Include="Images\18\Extra Images\IMG_20160620_113733.jpg" />
+    <Content Include="Images\18\Extra Images\IMG_20160620_113804.jpg" />
+    <Content Include="Images\18\Extra Images\IMG_20160620_113847.jpg" />
+    <Content Include="Images\18\Extra Images\IMG_20160620_114012.jpg" />
+    <Content Include="Images\18\Extra Images\IMG_20160620_114940.jpg" />
+    <Content Include="Images\18\Extra Images\IMG_20160620_114944.jpg" />
+    <Content Include="Images\18\Extra Images\IMG_20160620_115306.jpg" />
+    <Content Include="Images\18\Extra Images\IMG_20160620_115324.jpg" />
+    <Content Include="Images\18\Extra Images\IMG_20160620_115334.jpg" />
+    <Content Include="Images\18\Extra Images\IMG_20160620_115350.jpg" />
+    <Content Include="Images\18\Extra Images\IMG_20160620_115546.jpg" />
+    <Content Include="Images\18\IMG_20160620_113222.jpg" />
+    <Content Include="Images\18\IMG_20160620_113401.jpg" />
+    <Content Include="Images\18\IMG_20160620_113755.jpg" />
+    <Content Include="Images\18\thumbnail.jpg" />
+    <Content Include="Images\19\Extra Images\IMG_20160620_124846.jpg" />
+    <Content Include="Images\19\Extra Images\IMG_20160620_125022.jpg" />
+    <Content Include="Images\19\Extra Images\IMG_20160620_125112.jpg" />
+    <Content Include="Images\19\Extra Images\IMG_20160620_125242.jpg" />
+    <Content Include="Images\19\Extra Images\IMG_20160620_125300.jpg" />
+    <Content Include="Images\19\Extra Images\IMG_20160620_125317.jpg" />
+    <Content Include="Images\19\Extra Images\IMG_20160620_125352.jpg" />
+    <Content Include="Images\19\Extra Images\IMG_20160620_125429.jpg" />
+    <Content Include="Images\19\Extra Images\IMG_20160620_125449.jpg" />
+    <Content Include="Images\19\Extra Images\IMG_20160620_125519.jpg" />
+    <Content Include="Images\19\Extra Images\IMG_20160620_125542.jpg" />
+    <Content Include="Images\19\Extra Images\IMG_20160620_125604.jpg" />
+    <Content Include="Images\19\Extra Images\IMG_20160620_125644.jpg" />
+    <Content Include="Images\19\Extra Images\IMG_20160620_125754.jpg" />
+    <Content Include="Images\19\Extra Images\IMG_20160620_125806.jpg" />
+    <Content Include="Images\19\Extra Images\IMG_20160620_125838.jpg" />
+    <Content Include="Images\19\Extra Images\IMG_20160620_125954.jpg" />
+    <Content Include="Images\19\Extra Images\IMG_20160620_130206.jpg" />
+    <Content Include="Images\19\Extra Images\IMG_20160620_130704.jpg" />
+    <Content Include="Images\19\Extra Images\IMG_20160620_130720.jpg" />
+    <Content Include="Images\19\Extra Images\IMG_20160620_131039.jpg" />
+    <Content Include="Images\19\Extra Images\IMG_20160620_131041.jpg" />
+    <Content Include="Images\19\IMG_20160620_124957.jpg" />
+    <Content Include="Images\19\IMG_20160620_125723.jpg" />
+    <Content Include="Images\19\IMG_20160620_125814.jpg" />
+    <Content Include="Images\19\thumbnail.jpg" />
+    <Content Include="Images\20\Extra Images\IMG_20160620_132626.jpg" />
+    <Content Include="Images\20\Extra Images\IMG_20160620_133001.jpg" />
+    <Content Include="Images\20\Extra Images\IMG_20160620_134021[1].jpg" />
+    <Content Include="Images\20\IMG_20160620_132735.jpg" />
+    <Content Include="Images\20\IMG_20160620_132940.jpg" />
+    <Content Include="Images\20\IMG_20160620_134021.jpg" />
+    <Content Include="Images\20\thumbnail.jpg" />
+    <Content Include="Images\21\Extra Images\IMG_20160706_080807.jpg" />
+    <Content Include="Images\21\Extra Images\IMG_20160706_080822.jpg" />
+    <Content Include="Images\21\Extra Images\IMG_20160706_080954.jpg" />
+    <Content Include="Images\21\Extra Images\IMG_20160706_081024.jpg" />
+    <Content Include="Images\21\Extra Images\thumbnail.jpg" />
+    <Content Include="Images\21\IMG_20160706_080911.jpg" />
+    <Content Include="Images\21\IMG_20160706_080941.jpg" />
+    <Content Include="Images\21\IMG_20160706_081013.jpg" />
+    <Content Include="Images\21\thumbnail.jpg" />
+    <Content Include="Images\22\Extra Images\IMG_20160620_135145.jpg" />
+    <Content Include="Images\22\Extra Images\IMG_20160620_135210.jpg" />
+    <Content Include="Images\22\Extra Images\IMG_20160620_135248.jpg" />
+    <Content Include="Images\22\Extra Images\IMG_20160620_135311.jpg" />
+    <Content Include="Images\22\Extra Images\IMG_20160620_135347.jpg" />
+    <Content Include="Images\22\Extra Images\IMG_20160620_135419.jpg" />
+    <Content Include="Images\22\Extra Images\IMG_20160620_135510.jpg" />
+    <Content Include="Images\22\Extra Images\IMG_20160620_140601.jpg" />
+    <Content Include="Images\22\Extra Images\thumbnail.jpg" />
+    <Content Include="Images\22\IMG_20160620_135335.jpg" />
+    <Content Include="Images\22\IMG_20160620_135455.jpg" />
+    <Content Include="Images\22\IMG_20160620_135536.jpg" />
+    <Content Include="Images\22\thumbnail.jpg" />
+    <Content Include="Images\23\Extra Images\IMG_20160706_064642.jpg" />
+    <Content Include="Images\23\Extra Images\IMG_20160706_064716.jpg" />
+    <Content Include="Images\23\Extra Images\IMG_20160706_064824.jpg" />
+    <Content Include="Images\23\Extra Images\IMG_20160706_064845.jpg" />
+    <Content Include="Images\23\Extra Images\IMG_20160706_064905.jpg" />
+    <Content Include="Images\23\Extra Images\IMG_20160706_064910.jpg" />
+    <Content Include="Images\23\Extra Images\IMG_20160706_064920.jpg" />
+    <Content Include="Images\23\Extra Images\IMG_20160706_065202.jpg" />
+    <Content Include="Images\23\Extra Images\IMG_20160706_065214.jpg" />
+    <Content Include="Images\23\IMG_20160706_.jpg" />
+    <Content Include="Images\23\IMG_20160706_064841.jpg" />
+    <Content Include="Images\23\IMG_20160706_065225.jpg" />
+    <Content Include="Images\23\thumbnail.jpg" />
+    <Content Include="Images\24\Extra Images\IMG_20160620_143601.jpg" />
+    <Content Include="Images\24\Extra Images\IMG_20160620_144616.jpg" />
+    <Content Include="Images\24\Extra Images\IMG_20160620_144911.jpg" />
+    <Content Include="Images\24\Extra Images\IMG_20160620_144934.jpg" />
+    <Content Include="Images\24\IMG_20160620_143608.jpg" />
+    <Content Include="Images\24\IMG_20160620_144538.jpg" />
+    <Content Include="Images\24\IMG_20160620_144623.jpg" />
+    <Content Include="Images\24\thumbnail.jpg" />
+    <Content Include="Images\25\Extra Images\IMG_20160620_154825.jpg" />
+    <Content Include="Images\25\Extra Images\IMG_20160620_154855.jpg" />
+    <Content Include="Images\25\Extra Images\IMG_20160620_154915.jpg" />
+    <Content Include="Images\25\Extra Images\IMG_20160620_154952.jpg" />
+    <Content Include="Images\25\Extra Images\IMG_20160620_155019.jpg" />
+    <Content Include="Images\25\Extra Images\IMG_20160620_155255.jpg" />
+    <Content Include="Images\25\Extra Images\IMG_20160620_155316.jpg" />
+    <Content Include="Images\25\Extra Images\IMG_20160620_155323.jpg" />
+    <Content Include="Images\25\Extra Images\IMG_20160620_155325.jpg" />
+    <Content Include="Images\25\Extra Images\IMG_20160620_155345.jpg" />
+    <Content Include="Images\25\Extra Images\IMG_20160620_155422.jpg" />
+    <Content Include="Images\25\Extra Images\IMG_20160620_155428.jpg" />
+    <Content Include="Images\25\Extra Images\IMG_20160620_155443.jpg" />
+    <Content Include="Images\25\Extra Images\IMG_20160620_155505.jpg" />
+    <Content Include="Images\25\Extra Images\IMG_20160620_155539.jpg" />
+    <Content Include="Images\25\Extra Images\IMG_20160620_160011.jpg" />
+    <Content Include="Images\25\Extra Images\IMG_20160620_160430.jpg" />
+    <Content Include="Images\25\Extra Images\IMG_20160620_160543.jpg" />
+    <Content Include="Images\25\IMG_20160620_154840.jpg" />
+    <Content Include="Images\25\IMG_20160620_155401.jpg" />
+    <Content Include="Images\25\IMG_20160620_160015.jpg" />
+    <Content Include="Images\25\thumbnail.jpg" />
+    <Content Include="Images\26\Extra Images\IMG_20160620_161738.jpg" />
+    <Content Include="Images\26\Extra Images\IMG_20160620_161741.jpg" />
+    <Content Include="Images\26\Extra Images\IMG_20160620_161800.jpg" />
+    <Content Include="Images\26\Extra Images\IMG_20160620_161815.jpg" />
+    <Content Include="Images\26\Extra Images\IMG_20160620_161854.jpg" />
+    <Content Include="Images\26\Extra Images\IMG_20160620_161948.jpg" />
+    <Content Include="Images\26\Extra Images\IMG_20160620_162030.jpg" />
+    <Content Include="Images\26\Extra Images\IMG_20160620_162127.jpg" />
+    <Content Include="Images\26\Extra Images\IMG_20160620_162146.jpg" />
+    <Content Include="Images\26\Extra Images\IMG_20160620_162213.jpg" />
+    <Content Include="Images\26\Extra Images\IMG_20160620_162309.jpg" />
+    <Content Include="Images\26\Extra Images\IMG_20160620_162339.jpg" />
+    <Content Include="Images\26\Extra Images\IMG_20160620_162348.jpg" />
+    <Content Include="Images\26\IMG_20160620_161819.jpg" />
+    <Content Include="Images\26\IMG_20160620_162044.jpg" />
+    <Content Include="Images\26\IMG_20160620_162234.jpg" />
+    <Content Include="Images\26\thumbnail.jpg" />
+    <Content Include="Images\27\Extra Images\IMG_20160620_164657.jpg" />
+    <Content Include="Images\27\Extra Images\IMG_20160620_164727.jpg" />
+    <Content Include="Images\27\Extra Images\IMG_20160620_164752.jpg" />
+    <Content Include="Images\27\Extra Images\IMG_20160620_164919.jpg" />
+    <Content Include="Images\27\Extra Images\IMG_20160620_165156.jpg" />
+    <Content Include="Images\27\Extra Images\IMG_20160620_165216.jpg" />
+    <Content Include="Images\27\Extra Images\IMG_20160620_165250.jpg" />
+    <Content Include="Images\27\Extra Images\IMG_20160620_165552.jpg" />
+    <Content Include="Images\27\Extra Images\IMG_20160620_165905.jpg" />
+    <Content Include="Images\27\Extra Images\IMG_20160620_170213.jpg" />
+    <Content Include="Images\27\Extra Images\IMG_20160620_170221.jpg" />
+    <Content Include="Images\27\Extra Images\IMG_20160620_170305.jpg" />
+    <Content Include="Images\27\Extra Images\IMG_20160620_170412.jpg" />
+    <Content Include="Images\27\IMG_20160620_165230.jpg" />
+    <Content Include="Images\27\IMG_20160620_165403.jpg" />
+    <Content Include="Images\27\IMG_20160620_170321.jpg" />
+    <Content Include="Images\27\thumbnail.jpg" />
+    <Content Include="Images\28\Extra Images\IMG_20160621_084312.jpg" />
+    <Content Include="Images\28\Extra Images\IMG_20160621_084802.jpg" />
+    <Content Include="Images\28\Extra Images\IMG_20160621_084812.jpg" />
+    <Content Include="Images\28\Extra Images\IMG_20160621_084906.jpg" />
+    <Content Include="Images\28\Extra Images\IMG_20160621_084908.jpg" />
+    <Content Include="Images\28\Extra Images\IMG_20160621_085233.jpg" />
+    <Content Include="Images\28\Extra Images\IMG_20160621_085237.jpg" />
+    <Content Include="Images\28\Extra Images\IMG_20160621_085253.jpg" />
+    <Content Include="Images\28\Extra Images\IMG_20160621_085355.jpg" />
+    <Content Include="Images\28\Extra Images\IMG_20160621_085420.jpg" />
+    <Content Include="Images\28\Extra Images\IMG_20160621_094606.jpg" />
+    <Content Include="Images\28\IMG_20160621_085156.jpg" />
+    <Content Include="Images\28\IMG_20160621_085213.jpg" />
+    <Content Include="Images\28\IMG_20160621_085323.jpg" />
+    <Content Include="Images\28\thumbnail.jpg" />
+    <Content Include="Images\29\Extra Images\IMG_20160621_100414.jpg" />
+    <Content Include="Images\29\Extra Images\IMG_20160621_101738.jpg" />
+    <Content Include="Images\29\Extra Images\IMG_20160621_101752.jpg" />
+    <Content Include="Images\29\Extra Images\IMG_20160621_101837.jpg" />
+    <Content Include="Images\29\Extra Images\IMG_20160621_101929.jpg" />
+    <Content Include="Images\29\Extra Images\IMG_20160621_102015.jpg" />
+    <Content Include="Images\29\Extra Images\IMG_20160621_102218.jpg" />
+    <Content Include="Images\29\IMG_20160621_100409.jpg" />
+    <Content Include="Images\29\IMG_20160621_101910.jpg" />
+    <Content Include="Images\29\IMG_20160621_102000.jpg" />
+    <Content Include="Images\29\thumbnail.jpg" />
+    <Content Include="Images\30\Extra Images\IMG_20160621_103457.jpg" />
+    <Content Include="Images\30\Extra Images\IMG_20160621_103544.jpg" />
+    <Content Include="Images\30\Extra Images\IMG_20160621_103556.jpg" />
+    <Content Include="Images\30\Extra Images\IMG_20160621_103557.jpg" />
+    <Content Include="Images\30\Extra Images\IMG_20160621_103635.jpg" />
+    <Content Include="Images\30\Extra Images\IMG_20160621_103721.jpg" />
+    <Content Include="Images\30\Extra Images\IMG_20160621_103737.jpg" />
+    <Content Include="Images\30\Extra Images\IMG_20160621_103756.jpg" />
+    <Content Include="Images\30\Extra Images\IMG_20160621_103810.jpg" />
+    <Content Include="Images\30\Extra Images\IMG_20160621_104000.jpg" />
+    <Content Include="Images\30\Extra Images\IMG_20160621_104627.jpg" />
+    <Content Include="Images\30\IMG_20160621_103514.jpg" />
+    <Content Include="Images\30\IMG_20160621_103628.jpg" />
+    <Content Include="Images\30\IMG_20160621_103702.jpg" />
+    <Content Include="Images\30\thumbnail.jpg" />
+    <Content Include="Images\31\Extra Images\IMG_20160621_111158.jpg" />
+    <Content Include="Images\31\Extra Images\IMG_20160621_111354.jpg" />
+    <Content Include="Images\31\Extra Images\IMG_20160621_111448.jpg" />
+    <Content Include="Images\31\Extra Images\IMG_20160621_111505.jpg" />
+    <Content Include="Images\31\Extra Images\IMG_20160621_111556.jpg" />
+    <Content Include="Images\31\Extra Images\IMG_20160621_111658.jpg" />
+    <Content Include="Images\31\Extra Images\IMG_20160621_111855.jpg" />
+    <Content Include="Images\31\Extra Images\IMG_20160621_111857.jpg" />
+    <Content Include="Images\31\Extra Images\IMG_20160621_112004.jpg" />
+    <Content Include="Images\31\Extra Images\IMG_20160621_112100.jpg" />
+    <Content Include="Images\31\Extra Images\IMG_20160621_112105.jpg" />
+    <Content Include="Images\31\Extra Images\IMG_20160621_112143.jpg" />
+    <Content Include="Images\31\Extra Images\IMG_20160621_112251.jpg" />
+    <Content Include="Images\31\Extra Images\IMG_20160621_112337.jpg" />
+    <Content Include="Images\31\Extra Images\IMG_20160621_112617.jpg" />
+    <Content Include="Images\31\Extra Images\IMG_20160621_113209.jpg" />
+    <Content Include="Images\31\Extra Images\IMG_20160621_113251.jpg" />
+    <Content Include="Images\31\Extra Images\IMG_20160621_113315.jpg" />
+    <Content Include="Images\31\Extra Images\IMG_20160621_113709.jpg" />
+    <Content Include="Images\31\Extra Images\IMG_20160621_113801.jpg" />
+    <Content Include="Images\31\Extra Images\IMG_20160621_114513.jpg" />
+    <Content Include="Images\31\Extra Images\IMG_20160621_115031.jpg" />
+    <Content Include="Images\31\Extra Images\IMG_20160621_115058.jpg" />
+    <Content Include="Images\31\Extra Images\IMG_20160621_115733 - Copy.jpg" />
+    <Content Include="Images\31\Extra Images\IMG_20160621_115733.jpg" />
+    <Content Include="Images\31\Extra Images\IMG_20160621_115811.jpg" />
+    <Content Include="Images\31\IMG_20160621_111253.jpg" />
+    <Content Include="Images\31\IMG_20160621_113052.jpg" />
+    <Content Include="Images\31\IMG_20160621_113722.jpg" />
+    <Content Include="Images\31\thumbnail.jpg" />
+    <Content Include="Images\32\Extra Images\IMG_20160622_092541.jpg" />
+    <Content Include="Images\32\Extra Images\IMG_20160622_092630.jpg" />
+    <Content Include="Images\32\Extra Images\IMG_20160622_092927.jpg" />
+    <Content Include="Images\32\Extra Images\IMG_20160622_093011.jpg" />
+    <Content Include="Images\32\Extra Images\IMG_20160622_093221.jpg" />
+    <Content Include="Images\32\Extra Images\IMG_20160622_093303.jpg" />
+    <Content Include="Images\32\Extra Images\IMG_20160622_094744.jpg" />
+    <Content Include="Images\32\Extra Images\IMG_20160622_094931.jpg" />
+    <Content Include="Images\32\IMG_20160622.jpg" />
+    <Content Include="Images\32\IMG_20160622_092655.jpg" />
+    <Content Include="Images\32\IMG_20160622_092806.jpg" />
+    <Content Include="Images\32\thumbnail.jpg" />
+    <Content Include="Images\33\Extra Images\IMG_20160622_095449.jpg" />
+    <Content Include="Images\33\Extra Images\IMG_20160622_095458.jpg" />
+    <Content Include="Images\33\Extra Images\IMG_20160622_100041.jpg" />
+    <Content Include="Images\33\Extra Images\IMG_20160622_100130.jpg" />
+    <Content Include="Images\33\Extra Images\IMG_20160622_100208.jpg" />
+    <Content Include="Images\33\Extra Images\IMG_20160622_100234.jpg" />
+    <Content Include="Images\33\Extra Images\IMG_20160622_100424.jpg" />
+    <Content Include="Images\33\Extra Images\IMG_20160622_100510.jpg" />
+    <Content Include="Images\33\Extra Images\IMG_20160622_100551.jpg" />
+    <Content Include="Images\33\IMG_20160622_100113.jpg" />
+    <Content Include="Images\33\IMG_20160622_100339.jpg" />
+    <Content Include="Images\33\IMG_20160622_100409.jpg" />
+    <Content Include="Images\33\thumbnail.jpg" />
+    <Content Include="Images\34\Extra Images\IMG_20160622_104848.jpg" />
+    <Content Include="Images\34\Extra Images\IMG_20160622_105029.jpg" />
+    <Content Include="Images\34\Extra Images\IMG_20160622_105153.jpg" />
+    <Content Include="Images\34\Extra Images\IMG_20160622_105308.jpg" />
+    <Content Include="Images\34\Extra Images\IMG_20160622_105318.jpg" />
+    <Content Include="Images\34\IMG_20160622_104831.jpg" />
+    <Content Include="Images\34\IMG_20160622_104959.jpg" />
+    <Content Include="Images\34\IMG_20160622_105246.jpg" />
+    <Content Include="Images\34\thumbnail.jpg" />
+    <Content Include="Images\35\Extra Images\IMG_20160622_110912.jpg" />
+    <Content Include="Images\35\Extra Images\IMG_20160622_110930.jpg" />
+    <Content Include="Images\35\Extra Images\IMG_20160622_110933.jpg" />
+    <Content Include="Images\35\Extra Images\IMG_20160622_110959.jpg" />
+    <Content Include="Images\35\Extra Images\IMG_20160622_111059.jpg" />
+    <Content Include="Images\35\Extra Images\IMG_20160622_111108.jpg" />
+    <Content Include="Images\35\Extra Images\IMG_20160622_111144.jpg" />
+    <Content Include="Images\35\Extra Images\IMG_20160622_111221.jpg" />
+    <Content Include="Images\35\Extra Images\IMG_20160622_111226.jpg" />
+    <Content Include="Images\35\Extra Images\IMG_20160622_111226[1].jpg" />
+    <Content Include="Images\35\Extra Images\IMG_20160622_111242.jpg" />
+    <Content Include="Images\35\Extra Images\IMG_20160622_111516.jpg" />
+    <Content Include="Images\35\Extra Images\IMG_20160622_111529.jpg" />
+    <Content Include="Images\35\Extra Images\IMG_20160622_111544.jpg" />
+    <Content Include="Images\35\Extra Images\IMG_20160622_111612.jpg" />
+    <Content Include="Images\35\Extra Images\IMG_20160622_111633.jpg" />
+    <Content Include="Images\35\Extra Images\IMG_20160622_111721.jpg" />
+    <Content Include="Images\35\Extra Images\IMG_20160622_111732.jpg" />
+    <Content Include="Images\35\Extra Images\IMG_20160622_111808.jpg" />
+    <Content Include="Images\35\Extra Images\IMG_20160622_111830.jpg" />
+    <Content Include="Images\35\Extra Images\IMG_20160622_111905.jpg" />
+    <Content Include="Images\35\Extra Images\IMG_20160622_112026.jpg" />
+    <Content Include="Images\35\IMG_20160622_111031.jpg" />
+    <Content Include="Images\35\IMG_20160622_111642.jpg" />
+    <Content Include="Images\35\IMG_20160622_111954.jpg" />
+    <Content Include="Images\35\thumbnail.jpg" />
+    <Content Include="Images\36\Extra Images\IMG_20160622_131811.jpg" />
+    <Content Include="Images\36\Extra Images\IMG_20160622_131827.jpg" />
+    <Content Include="Images\36\Extra Images\IMG_20160622_131927.jpg" />
+    <Content Include="Images\36\Extra Images\IMG_20160622_132011.jpg" />
+    <Content Include="Images\36\Extra Images\IMG_20160622_132046.jpg" />
+    <Content Include="Images\36\Extra Images\IMG_20160622_132124.jpg" />
+    <Content Include="Images\36\Extra Images\IMG_20160622_132212.jpg" />
+    <Content Include="Images\36\Extra Images\IMG_20160622_132349.jpg" />
+    <Content Include="Images\36\Extra Images\IMG_20160622_132402.jpg" />
+    <Content Include="Images\36\Extra Images\IMG_20160622_132550.jpg" />
+    <Content Include="Images\36\Extra Images\IMG_20160622_132803.jpg" />
+    <Content Include="Images\36\Extra Images\IMG_20160622_133036.jpg" />
+    <Content Include="Images\36\Extra Images\IMG_20160622_133041.jpg" />
+    <Content Include="Images\36\Extra Images\IMG_20160622_133129.jpg" />
+    <Content Include="Images\36\Extra Images\IMG_20160622_133202.jpg" />
+    <Content Include="Images\36\Extra Images\IMG_20160622_133341.jpg" />
+    <Content Include="Images\36\Extra Images\IMG_20160622_133402.jpg" />
+    <Content Include="Images\36\Extra Images\IMG_20160622_133428.jpg" />
+    <Content Include="Images\36\Extra Images\IMG_20160622_133447.jpg" />
+    <Content Include="Images\36\Extra Images\IMG_20160622_133504.jpg" />
+    <Content Include="Images\36\Extra Images\IMG_20160622_133518.jpg" />
+    <Content Include="Images\36\Extra Images\IMG_20160622_133537.jpg" />
+    <Content Include="Images\36\Extra Images\IMG_20160622_133552.jpg" />
+    <Content Include="Images\36\Extra Images\IMG_20160622_133709.jpg" />
+    <Content Include="Images\36\Extra Images\IMG_20160622_133820.jpg" />
+    <Content Include="Images\36\Extra Images\IMG_20160622_133902.jpg" />
+    <Content Include="Images\36\Extra Images\IMG_20160622_134233.jpg" />
+    <Content Include="Images\36\Extra Images\IMG_20160622_134255.jpg" />
+    <Content Include="Images\36\Extra Images\IMG_20160622_134304.jpg" />
+    <Content Include="Images\36\Extra Images\IMG_20160622_134326.jpg" />
+    <Content Include="Images\36\Extra Images\IMG_20160622_134419.jpg" />
+    <Content Include="Images\36\Extra Images\IMG_20160622_134533.jpg" />
+    <Content Include="Images\36\Extra Images\IMG_20160622_134848.jpg" />
+    <Content Include="Images\36\Extra Images\IMG_20160622_134912.jpg" />
+    <Content Include="Images\36\Extra Images\IMG_20160622_135009.jpg" />
+    <Content Include="Images\36\Extra Images\IMG_20160622_135012.jpg" />
+    <Content Include="Images\36\Extra Images\IMG_20160622_140020.jpg" />
+    <Content Include="Images\36\IMG_20160622_132001.jpg" />
+    <Content Include="Images\36\IMG_20160622_133934.jpg" />
+    <Content Include="Images\36\IMG_20160622_134316.jpg" />
+    <Content Include="Images\36\thumbnail.jpg" />
+    <Content Include="Images\37\Extra Images\IMG_20160622_140525.jpg" />
+    <Content Include="Images\37\Extra Images\IMG_20160622_140545.jpg" />
+    <Content Include="Images\37\Extra Images\IMG_20160622_140603.jpg" />
+    <Content Include="Images\37\Extra Images\IMG_20160622_140612.jpg" />
+    <Content Include="Images\37\Extra Images\IMG_20160622_140655.jpg" />
+    <Content Include="Images\37\Extra Images\IMG_20160622_140731.jpg" />
+    <Content Include="Images\37\Extra Images\IMG_20160622_140744.jpg" />
+    <Content Include="Images\37\Extra Images\IMG_20160622_140813.jpg" />
+    <Content Include="Images\37\Extra Images\IMG_20160622_140834.jpg" />
+    <Content Include="Images\37\Extra Images\IMG_20160622_140846.jpg" />
+    <Content Include="Images\37\Extra Images\IMG_20160622_140858.jpg" />
+    <Content Include="Images\37\Extra Images\IMG_20160622_140917.jpg" />
+    <Content Include="Images\37\Extra Images\IMG_20160622_141715.jpg" />
+    <Content Include="Images\37\Extra Images\IMG_20160622_141723.jpg" />
+    <Content Include="Images\37\Extra Images\IMG_20160622_141954.jpg" />
+    <Content Include="Images\37\IMG_20160622_140645.jpg" />
+    <Content Include="Images\37\IMG_20160622_140825.jpg" />
+    <Content Include="Images\37\IMG_20160622_141028.jpg" />
+    <Content Include="Images\37\thumbnail.jpg" />
+    <Content Include="Images\38\Extra Images\IMG_20160622_143142.jpg" />
+    <Content Include="Images\38\Extra Images\IMG_20160622_143149.jpg" />
+    <Content Include="Images\38\Extra Images\IMG_20160622_143232.jpg" />
+    <Content Include="Images\38\Extra Images\IMG_20160622_143412.jpg" />
+    <Content Include="Images\38\Extra Images\IMG_20160622_143420.jpg" />
+    <Content Include="Images\38\Extra Images\IMG_20160622_143433.jpg" />
+    <Content Include="Images\38\Extra Images\IMG_20160622_143439.jpg" />
+    <Content Include="Images\38\Extra Images\IMG_20160622_143649.jpg" />
+    <Content Include="Images\38\Extra Images\IMG_20160622_143721.jpg" />
+    <Content Include="Images\38\Extra Images\IMG_20160622_143724.jpg" />
+    <Content Include="Images\38\IMG_20160622.jpg" />
+    <Content Include="Images\38\IMG_20160622_143200.jpg" />
+    <Content Include="Images\38\IMG_20160622_143314.jpg" />
+    <Content Include="Images\38\thumbnail.jpg" />
+    <Content Include="Images\39\Extra Images\IMG_20160706_082950.jpg" />
+    <Content Include="Images\39\Extra Images\IMG_20160706_083006.jpg" />
+    <Content Include="Images\39\Extra Images\IMG_20160706_083212.jpg" />
+    <Content Include="Images\39\Extra Images\IMG_20160706_083223.jpg" />
+    <Content Include="Images\39\Extra Images\IMG_20160706_083233.jpg" />
+    <Content Include="Images\39\Extra Images\IMG_20160706_083252.jpg" />
+    <Content Include="Images\39\Extra Images\IMG_20160706_083318.jpg" />
+    <Content Include="Images\39\Extra Images\IMG_20160706_083403.jpg" />
+    <Content Include="Images\39\Extra Images\IMG_20160706_083416.jpg" />
+    <Content Include="Images\39\Extra Images\IMG_20160706_083448.jpg" />
+    <Content Include="Images\39\Extra Images\IMG_20160706_083515.jpg" />
+    <Content Include="Images\39\Extra Images\IMG_20160706_083742.jpg" />
+    <Content Include="Images\39\Extra Images\IMG_20160706_083834.jpg" />
+    <Content Include="Images\39\Extra Images\IMG_20160706_083840.jpg" />
+    <Content Include="Images\39\IMG_20160706_082943.jpg" />
+    <Content Include="Images\39\IMG_20160706_083445.jpg" />
+    <Content Include="Images\39\IMG_20160706_083753.jpg" />
+    <Content Include="Images\39\thumbnail.jpg" />
+    <Content Include="Images\40\Extra Images\IMG_20160622_150600.jpg" />
+    <Content Include="Images\40\Extra Images\IMG_20160622_150614.jpg" />
+    <Content Include="Images\40\Extra Images\IMG_20160622_150622.jpg" />
+    <Content Include="Images\40\Extra Images\IMG_20160622_150626.jpg" />
+    <Content Include="Images\40\Extra Images\IMG_20160622_150651.jpg" />
+    <Content Include="Images\40\Extra Images\IMG_20160622_150712.jpg" />
+    <Content Include="Images\40\Extra Images\IMG_20160622_150726.jpg" />
+    <Content Include="Images\40\Extra Images\IMG_20160622_150743.jpg" />
+    <Content Include="Images\40\Extra Images\IMG_20160622_150751.jpg" />
+    <Content Include="Images\40\Extra Images\IMG_20160622_150802.jpg" />
+    <Content Include="Images\40\Extra Images\IMG_20160622_150804.jpg" />
+    <Content Include="Images\40\Extra Images\IMG_20160622_150827.jpg" />
+    <Content Include="Images\40\Extra Images\IMG_20160622_150838.jpg" />
+    <Content Include="Images\40\Extra Images\IMG_20160622_150918.jpg" />
+    <Content Include="Images\40\Extra Images\IMG_20160622_150926.jpg" />
+    <Content Include="Images\40\Extra Images\IMG_20160622_150948.jpg" />
+    <Content Include="Images\40\Extra Images\IMG_20160622_151002.jpg" />
+    <Content Include="Images\40\Extra Images\IMG_20160622_151057.jpg" />
+    <Content Include="Images\40\Extra Images\IMG_20160622_151126.jpg" />
+    <Content Include="Images\40\Extra Images\IMG_20160622_151140.jpg" />
+    <Content Include="Images\40\Extra Images\IMG_20160622_151147.jpg" />
+    <Content Include="Images\40\Extra Images\IMG_20160622_151148.jpg" />
+    <Content Include="Images\40\IMG_20160622_150735.jpg" />
+    <Content Include="Images\40\IMG_20160622_150939.jpg" />
+    <Content Include="Images\40\IMG_20160622_151040.jpg" />
+    <Content Include="Images\40\thumbnail.jpg" />
+    <Content Include="Images\41\Extra Images\IMG_20160627_081008.jpg" />
+    <Content Include="Images\41\Extra Images\IMG_20160627_081012.jpg" />
+    <Content Include="Images\41\Extra Images\IMG_20160627_081126.jpg" />
+    <Content Include="Images\41\Extra Images\IMG_20160627_081156.jpg" />
+    <Content Include="Images\41\Extra Images\IMG_20160627_081208.jpg" />
+    <Content Include="Images\41\Extra Images\IMG_20160627_081231.jpg" />
+    <Content Include="Images\41\Extra Images\IMG_20160627_081252.jpg" />
+    <Content Include="Images\41\Extra Images\IMG_20160627_081310.jpg" />
+    <Content Include="Images\41\Extra Images\IMG_20160627_081327.jpg" />
+    <Content Include="Images\41\Extra Images\IMG_20160627_081327[1].jpg" />
+    <Content Include="Images\41\Extra Images\IMG_20160627_081342.jpg" />
+    <Content Include="Images\41\Extra Images\IMG_20160627_081342[1].jpg" />
+    <Content Include="Images\41\Extra Images\IMG_20160627_081401.jpg" />
+    <Content Include="Images\41\Extra Images\IMG_20160627_081427.jpg" />
+    <Content Include="Images\41\Extra Images\IMG_20160627_081456.jpg" />
+    <Content Include="Images\41\Extra Images\IMG_20160627_081510.jpg" />
+    <Content Include="Images\41\Extra Images\IMG_20160627_081524.jpg" />
+    <Content Include="Images\41\Extra Images\IMG_20160627_081545.jpg" />
+    <Content Include="Images\41\Extra Images\IMG_20160627_081603.jpg" />
+    <Content Include="Images\41\Extra Images\IMG_20160627_081622.jpg" />
+    <Content Include="Images\41\Extra Images\IMG_20160627_081630.jpg" />
+    <Content Include="Images\41\Extra Images\IMG_20160627_081642.jpg" />
+    <Content Include="Images\41\Extra Images\IMG_20160627_081659.jpg" />
+    <Content Include="Images\41\Extra Images\IMG_20160627_081826.jpg" />
+    <Content Include="Images\41\Extra Images\IMG_20160627_081839.jpg" />
+    <Content Include="Images\41\Extra Images\IMG_20160627_081934.jpg" />
+    <Content Include="Images\41\Extra Images\IMG_20160627_082007.jpg" />
+    <Content Include="Images\41\Extra Images\IMG_20160627_082016.jpg" />
+    <Content Include="Images\41\Extra Images\IMG_20160627_082024.jpg" />
+    <Content Include="Images\41\Extra Images\IMG_20160627_082538.jpg" />
+    <Content Include="Images\41\IMG_20160627_081226.jpg" />
+    <Content Include="Images\41\IMG_20160627_081803.jpg" />
+    <Content Include="Images\41\IMG_20160627_082039.jpg" />
+    <Content Include="Images\41\thumbnail.jpg" />
+    <Content Include="Images\42\Extra Images\IMG_20160627_085019.jpg" />
+    <Content Include="Images\42\Extra Images\IMG_20160627_085032.jpg" />
+    <Content Include="Images\42\Extra Images\IMG_20160627_085047.jpg" />
+    <Content Include="Images\42\Extra Images\IMG_20160627_085153.jpg" />
+    <Content Include="Images\42\Extra Images\IMG_20160627_085204.jpg" />
+    <Content Include="Images\42\Extra Images\IMG_20160627_085242.jpg" />
+    <Content Include="Images\42\Extra Images\IMG_20160627_085255.jpg" />
+    <Content Include="Images\42\Extra Images\IMG_20160627_085351.jpg" />
+    <Content Include="Images\42\Extra Images\IMG_20160627_085440.jpg" />
+    <Content Include="Images\42\Extra Images\IMG_20160627_085509.jpg" />
+    <Content Include="Images\42\Extra Images\IMG_20160627_085556.jpg" />
+    <Content Include="Images\42\Extra Images\IMG_20160627_085654.jpg" />
+    <Content Include="Images\42\Extra Images\IMG_20160627_085718.jpg" />
+    <Content Include="Images\42\Extra Images\IMG_20160627_085814.jpg" />
+    <Content Include="Images\42\Extra Images\IMG_20160627_085828.jpg" />
+    <Content Include="Images\42\Extra Images\IMG_20160627_085834.jpg" />
+    <Content Include="Images\42\Extra Images\IMG_20160627_085852.jpg" />
+    <Content Include="Images\42\Extra Images\IMG_20160627_085919.jpg" />
+    <Content Include="Images\42\Extra Images\IMG_20160627_085946.jpg" />
+    <Content Include="Images\42\IMG20160627_.jpg" />
+    <Content Include="Images\42\IMG_20160627_085100.jpg" />
+    <Content Include="Images\42\IMG_20160627_085140.jpg" />
+    <Content Include="Images\42\thumbnail.jpg" />
+    <Content Include="Images\43\Extra Images\IMG_20160627_093704.jpg" />
+    <Content Include="Images\43\Extra Images\IMG_20160627_093712.jpg" />
+    <Content Include="Images\43\Extra Images\IMG_20160627_093725.jpg" />
+    <Content Include="Images\43\Extra Images\IMG_20160627_093752.jpg" />
+    <Content Include="Images\43\Extra Images\IMG_20160627_093808.jpg" />
+    <Content Include="Images\43\Extra Images\IMG_20160627_093819.jpg" />
+    <Content Include="Images\43\Extra Images\IMG_20160627_093859.jpg" />
+    <Content Include="Images\43\Extra Images\IMG_20160627_093909.jpg" />
+    <Content Include="Images\43\Extra Images\IMG_20160627_093921.jpg" />
+    <Content Include="Images\43\Extra Images\IMG_20160627_093928.jpg" />
+    <Content Include="Images\43\Extra Images\IMG_20160627_094006.jpg" />
+    <Content Include="Images\43\Extra Images\IMG_20160627_094021.jpg" />
+    <Content Include="Images\43\Extra Images\IMG_20160627_094035.jpg" />
+    <Content Include="Images\43\Extra Images\IMG_20160627_094116.jpg" />
+    <Content Include="Images\43\Extra Images\IMG_20160627_094149.jpg" />
+    <Content Include="Images\43\Extra Images\IMG_20160627_094202.jpg" />
+    <Content Include="Images\43\Extra Images\IMG_20160627_094206.jpg" />
+    <Content Include="Images\43\Extra Images\IMG_20160627_094306.jpg" />
+    <Content Include="Images\43\IMG_20160627_093800.jpg" />
+    <Content Include="Images\43\IMG_20160627_093957.jpg" />
+    <Content Include="Images\43\IMG_20160627_094103.jpg" />
+    <Content Include="Images\43\thumbnail.jpg" />
+    <Content Include="Images\44\Extra Images\IMG_20160627_101637.jpg" />
+    <Content Include="Images\44\Extra Images\IMG_20160627_101702.jpg" />
+    <Content Include="Images\44\Extra Images\IMG_20160627_101709.jpg" />
+    <Content Include="Images\44\Extra Images\IMG_20160627_101716.jpg" />
+    <Content Include="Images\44\Extra Images\IMG_20160627_101721.jpg" />
+    <Content Include="Images\44\Extra Images\IMG_20160627_101737.jpg" />
+    <Content Include="Images\44\Extra Images\IMG_20160627_101748.jpg" />
+    <Content Include="Images\44\Extra Images\IMG_20160627_101848.jpg" />
+    <Content Include="Images\44\IMG_20160627_101649.jpg" />
+    <Content Include="Images\44\IMG_20160627_101656.jpg" />
+    <Content Include="Images\44\IMG_20160627_101756.jpg" />
+    <Content Include="Images\44\thumbnail.jpg" />
+    <Content Include="Images\45\Extra Images\IMG_20160627_095505.jpg" />
+    <Content Include="Images\45\Extra Images\IMG_20160627_095554.jpg" />
+    <Content Include="Images\45\Extra Images\IMG_20160627_095627.jpg" />
+    <Content Include="Images\45\Extra Images\IMG_20160627_095807.jpg" />
+    <Content Include="Images\45\Extra Images\IMG_20160627_095836.jpg" />
+    <Content Include="Images\45\Extra Images\IMG_20160627_095857.jpg" />
+    <Content Include="Images\45\Extra Images\IMG_20160627_095949.jpg" />
+    <Content Include="Images\45\Extra Images\IMG_20160627_100048.jpg" />
+    <Content Include="Images\45\Extra Images\IMG_20160627_100054.jpg" />
+    <Content Include="Images\45\Extra Images\IMG_20160627_100104.jpg" />
+    <Content Include="Images\45\IMG_20160627_095529.jpg" />
+    <Content Include="Images\45\IMG_20160627_095538.jpg" />
+    <Content Include="Images\45\IMG_20160627_095811.jpg" />
+    <Content Include="Images\45\thumbnail.jpg" />
+    <Content Include="Images\46\Extra Images\IMG_20160627_103256.jpg" />
+    <Content Include="Images\46\Extra Images\IMG_20160627_103311.jpg" />
+    <Content Include="Images\46\Extra Images\IMG_20160627_103325.jpg" />
+    <Content Include="Images\46\Extra Images\IMG_20160627_103348.jpg" />
+    <Content Include="Images\46\Extra Images\IMG_20160627_103356.jpg" />
+    <Content Include="Images\46\Extra Images\IMG_20160627_103408.jpg" />
+    <Content Include="Images\46\Extra Images\IMG_20160627_103424.jpg" />
+    <Content Include="Images\46\Extra Images\IMG_20160627_103431.jpg" />
+    <Content Include="Images\46\Extra Images\IMG_20160627_103459.jpg" />
+    <Content Include="Images\46\Extra Images\IMG_20160627_103541.jpg" />
+    <Content Include="Images\46\Extra Images\IMG_20160627_103550.jpg" />
+    <Content Include="Images\46\Extra Images\IMG_20160627_103605.jpg" />
+    <Content Include="Images\46\Extra Images\IMG_20160627_103626.jpg" />
+    <Content Include="Images\46\IMG_20160627_103415.jpg" />
+    <Content Include="Images\46\IMG_20160627_103446.jpg" />
+    <Content Include="Images\46\IMG_20160627_105525.jpg" />
+    <Content Include="Images\46\thumbnail.jpg" />
+    <Content Include="Images\47\Extra Images\IMG_20160627_105525.jpg" />
+    <Content Include="Images\47\Extra Images\IMG_20160627_105545.jpg" />
+    <Content Include="Images\47\Extra Images\IMG_20160627_105626.jpg" />
+    <Content Include="Images\47\Extra Images\IMG_20160627_105700.jpg" />
+    <Content Include="Images\47\Extra Images\IMG_20160627_105720.jpg" />
+    <Content Include="Images\47\Extra Images\IMG_20160627_105759.jpg" />
+    <Content Include="Images\47\Extra Images\IMG_20160627_105850.jpg" />
+    <Content Include="Images\47\Extra Images\IMG_20160627_110027.jpg" />
+    <Content Include="Images\47\Extra Images\IMG_20160627_110040.jpg" />
+    <Content Include="Images\47\Extra Images\IMG_20160627_110109.jpg" />
+    <Content Include="Images\47\Extra Images\IMG_20160627_110246.jpg" />
+    <Content Include="Images\47\Extra Images\IMG_20160627_110337.jpg" />
+    <Content Include="Images\47\Extra Images\IMG_20160627_110413.jpg" />
+    <Content Include="Images\47\Extra Images\IMG_20160627_110424.jpg" />
+    <Content Include="Images\47\IMG_20160627_105558.jpg" />
+    <Content Include="Images\47\IMG_20160627_105709.jpg" />
+    <Content Include="Images\47\IMG_20160627_110537.jpg" />
+    <Content Include="Images\47\thumbnail.jpg" />
+    <Content Include="Images\48\Extra Images\IMG_20160627_134612.jpg" />
+    <Content Include="Images\48\Extra Images\IMG_20160627_134725.jpg" />
+    <Content Include="Images\48\Extra Images\IMG_20160627_134735.jpg" />
+    <Content Include="Images\48\Extra Images\IMG_20160627_134802.jpg" />
+    <Content Include="Images\48\Extra Images\IMG_20160627_134826.jpg" />
+    <Content Include="Images\48\Extra Images\IMG_20160627_134939.jpg" />
+    <Content Include="Images\48\Extra Images\IMG_20160627_134940.jpg" />
+    <Content Include="Images\48\Extra Images\IMG_20160627_135023.jpg" />
+    <Content Include="Images\48\Extra Images\IMG_20160627_135030.jpg" />
+    <Content Include="Images\48\Extra Images\IMG_20160627_135144.jpg" />
+    <Content Include="Images\48\Extra Images\IMG_20160627_135257.jpg" />
+    <Content Include="Images\48\Extra Images\IMG_20160627_135411.jpg" />
+    <Content Include="Images\48\IMG_20160627_134655.jpg" />
+    <Content Include="Images\48\IMG_20160627_134851.jpg" />
+    <Content Include="Images\48\IMG_20160627_135312.jpg" />
+    <Content Include="Images\48\thumbnail.jpg" />
+    <Content Include="Images\49\Extra Images\IMG_20160627_141253.jpg" />
+    <Content Include="Images\49\Extra Images\IMG_20160627_141302.jpg" />
+    <Content Include="Images\49\Extra Images\IMG_20160627_141322.jpg" />
+    <Content Include="Images\49\Extra Images\IMG_20160627_141336.jpg" />
+    <Content Include="Images\49\Extra Images\IMG_20160627_141428.jpg" />
+    <Content Include="Images\49\Extra Images\IMG_20160627_141429.jpg" />
+    <Content Include="Images\49\Extra Images\IMG_20160627_141545.jpg" />
+    <Content Include="Images\49\Extra Images\IMG_20160627_141600.jpg" />
+    <Content Include="Images\49\Extra Images\IMG_20160627_141801.jpg" />
+    <Content Include="Images\49\Extra Images\IMG_20160627_141810.jpg" />
+    <Content Include="Images\49\Extra Images\IMG_20160627_141927.jpg" />
+    <Content Include="Images\49\Extra Images\IMG_20160627_141947.jpg" />
+    <Content Include="Images\49\Extra Images\IMG_20160627_142000.jpg" />
+    <Content Include="Images\49\Extra Images\IMG_20160627_142010.jpg" />
+    <Content Include="Images\49\Extra Images\IMG_20160627_142034.jpg" />
+    <Content Include="Images\49\Extra Images\IMG_20160627_142108.jpg" />
+    <Content Include="Images\49\Extra Images\IMG_20160627_142210.jpg" />
+    <Content Include="Images\49\Extra Images\IMG_20160627_142417.jpg" />
+    <Content Include="Images\49\IMG_20160627_141352.jpg" />
+    <Content Include="Images\49\IMG_20160627_141516.jpg" />
+    <Content Include="Images\49\IMG_20160627_141530.jpg" />
+    <Content Include="Images\49\thumbnail.jpg" />
+    <Content Include="Images\50\Extra Images\IMG_20160627_144108.jpg" />
+    <Content Include="Images\50\Extra Images\IMG_20160627_144122.jpg" />
+    <Content Include="Images\50\Extra Images\IMG_20160627_144126.jpg" />
+    <Content Include="Images\50\Extra Images\IMG_20160627_144243.jpg" />
+    <Content Include="Images\50\Extra Images\IMG_20160627_144359.jpg" />
+    <Content Include="Images\50\Extra Images\IMG_20160627_144406.jpg" />
+    <Content Include="Images\50\Extra Images\IMG_20160627_144420.jpg" />
+    <Content Include="Images\50\IMG_20160627_144051.jpg" />
+    <Content Include="Images\50\IMG_20160627_144153.jpg" />
+    <Content Include="Images\50\IMG_20160627_144224.jpg" />
+    <Content Include="Images\50\thumbnail.jpg" />
+    <Content Include="Images\51\Extra Images\IMG_20160627_150018.jpg" />
+    <Content Include="Images\51\Extra Images\IMG_20160627_150050.jpg" />
+    <Content Include="Images\51\Extra Images\IMG_20160627_150103.jpg" />
+    <Content Include="Images\51\Extra Images\IMG_20160627_150106.jpg" />
+    <Content Include="Images\51\Extra Images\IMG_20160627_150111.jpg" />
+    <Content Include="Images\51\Extra Images\IMG_20160627_150157.jpg" />
+    <Content Include="Images\51\Extra Images\IMG_20160627_150205.jpg" />
+    <Content Include="Images\51\Extra Images\IMG_20160627_150254.jpg" />
+    <Content Include="Images\51\Extra Images\IMG_20160627_150324.jpg" />
+    <Content Include="Images\51\Extra Images\IMG_20160627_150436.jpg" />
+    <Content Include="Images\51\IMG_20160627_150133.jpg" />
+    <Content Include="Images\51\IMG_20160627_150142.jpg" />
+    <Content Include="Images\51\IMG_20160627_150243.jpg" />
+    <Content Include="Images\51\thumbnail.jpg" />
+    <Content Include="Images\52\Extra Images\IMG_20160628_093556.jpg" />
+    <Content Include="Images\52\Extra Images\IMG_20160628_093601.jpg" />
+    <Content Include="Images\52\Extra Images\IMG_20160628_093610.jpg" />
+    <Content Include="Images\52\Extra Images\IMG_20160628_093647.jpg" />
+    <Content Include="Images\52\Extra Images\IMG_20160628_093708.jpg" />
+    <Content Include="Images\52\Extra Images\IMG_20160628_093807.jpg" />
+    <Content Include="Images\52\Extra Images\IMG_20160628_094036.jpg" />
+    <Content Include="Images\52\Extra Images\IMG_20160628_094052.jpg" />
+    <Content Include="Images\52\Extra Images\IMG_20160628_094140.jpg" />
+    <Content Include="Images\52\Extra Images\IMG_20160628_094355.jpg" />
+    <Content Include="Images\52\Extra Images\IMG_20160628_094432.jpg" />
+    <Content Include="Images\52\Extra Images\IMG_20160628_094449.jpg" />
+    <Content Include="Images\52\Extra Images\IMG_20160628_094609.jpg" />
+    <Content Include="Images\52\Extra Images\IMG_20160628_094731.jpg" />
+    <Content Include="Images\52\Extra Images\IMG_20160628_094750.jpg" />
+    <Content Include="Images\52\Extra Images\IMG_20160628_094754.jpg" />
+    <Content Include="Images\52\Extra Images\IMG_20160628_094811.jpg" />
+    <Content Include="Images\52\Extra Images\IMG_20160628_095935.jpg" />
+    <Content Include="Images\52\Extra Images\IMG_20160628_100017.jpg" />
+    <Content Include="Images\52\IMG_20160628_094122.jpg" />
+    <Content Include="Images\52\IMG_20160628_094908.jpg" />
+    <Content Include="Images\52\IMG_20160628_095217.jpg" />
+    <Content Include="Images\52\thumbnail.jpg" />
+    <Content Include="Images\53\Extra Images\IMG_20160628_100515.jpg" />
+    <Content Include="Images\53\Extra Images\IMG_20160628_100534.jpg" />
+    <Content Include="Images\53\Extra Images\IMG_20160628_100752.jpg" />
+    <Content Include="Images\53\IMG_20160628_100556.jpg" />
+    <Content Include="Images\53\IMG_20160628_100558.jpg" />
+    <Content Include="Images\53\IMG_20160628_100618.jpg" />
+    <Content Include="Images\53\thumbnail.jpg" />
+    <Content Include="Images\54\Extra Images\IMG_20160628_102336.jpg" />
+    <Content Include="Images\54\Extra Images\IMG_20160628_102340.jpg" />
+    <Content Include="Images\54\Extra Images\IMG_20160628_102345.jpg" />
+    <Content Include="Images\54\Extra Images\IMG_20160628_102415.jpg" />
+    <Content Include="Images\54\Extra Images\IMG_20160628_102425.jpg" />
+    <Content Include="Images\54\Extra Images\IMG_20160628_102434.jpg" />
+    <Content Include="Images\54\Extra Images\IMG_20160628_102513.jpg" />
+    <Content Include="Images\54\Extra Images\IMG_20160628_102640.jpg" />
+    <Content Include="Images\54\Extra Images\IMG_20160628_102721.jpg" />
+    <Content Include="Images\54\Extra Images\IMG_20160628_102738.jpg" />
+    <Content Include="Images\54\Extra Images\IMG_20160628_102757.jpg" />
+    <Content Include="Images\54\Extra Images\IMG_20160628_102807.jpg" />
+    <Content Include="Images\54\Extra Images\IMG_20160628_102821.jpg" />
+    <Content Include="Images\54\Extra Images\IMG_20160628_102849.jpg" />
+    <Content Include="Images\54\Extra Images\IMG_20160628_102918.jpg" />
+    <Content Include="Images\54\Extra Images\IMG_20160628_102922.jpg" />
+    <Content Include="Images\54\Extra Images\IMG_20160628_102937.jpg" />
+    <Content Include="Images\54\Extra Images\IMG_20160628_102947.jpg" />
+    <Content Include="Images\54\Extra Images\IMG_20160628_103011.jpg" />
+    <Content Include="Images\54\Extra Images\IMG_20160628_103035.jpg" />
+    <Content Include="Images\54\Extra Images\IMG_20160628_103133.jpg" />
+    <Content Include="Images\54\Extra Images\IMG_20160628_104434.jpg" />
+    <Content Include="Images\54\IMG_20160628_102534.jpg" />
+    <Content Include="Images\54\IMG_20160628_102601.jpg" />
+    <Content Include="Images\54\IMG_20160628_102907.jpg" />
+    <Content Include="Images\54\thumbnail.jpg" />
+    <Content Include="Images\55\Extra Images\IMG_20160628_110221.jpg" />
+    <Content Include="Images\55\Extra Images\IMG_20160628_110241.jpg" />
+    <Content Include="Images\55\Extra Images\IMG_20160628_110313.jpg" />
+    <Content Include="Images\55\Extra Images\IMG_20160628_110326.jpg" />
+    <Content Include="Images\55\Extra Images\IMG_20160628_110404.jpg" />
+    <Content Include="Images\55\Extra Images\IMG_20160628_110451.jpg" />
+    <Content Include="Images\55\Extra Images\IMG_20160628_110459.jpg" />
+    <Content Include="Images\55\Extra Images\IMG_20160628_110525.jpg" />
+    <Content Include="Images\55\Extra Images\IMG_20160628_110653.jpg" />
+    <Content Include="Images\55\Extra Images\IMG_20160628_110752.jpg" />
+    <Content Include="Images\55\Extra Images\IMG_20160628_110818.jpg" />
+    <Content Include="Images\55\Extra Images\IMG_20160628_110825.jpg" />
+    <Content Include="Images\55\Extra Images\IMG_20160628_110834.jpg" />
+    <Content Include="Images\55\Extra Images\IMG_20160628_110905.jpg" />
+    <Content Include="Images\55\Extra Images\IMG_20160628_110915.jpg" />
+    <Content Include="Images\55\Extra Images\IMG_20160628_110933.jpg" />
+    <Content Include="Images\55\Extra Images\IMG_20160628_110950.jpg" />
+    <Content Include="Images\55\Extra Images\IMG_20160628_111004.jpg" />
+    <Content Include="Images\55\Extra Images\IMG_20160628_111036.jpg" />
+    <Content Include="Images\55\Extra Images\IMG_20160628_111101.jpg" />
+    <Content Include="Images\55\Extra Images\IMG_20160628_111240.jpg" />
+    <Content Include="Images\55\Extra Images\IMG_20160628_111300.jpg" />
+    <Content Include="Images\55\Extra Images\IMG_20160628_111313.jpg" />
+    <Content Include="Images\55\Extra Images\IMG_20160628_111346.jpg" />
+    <Content Include="Images\55\Extra Images\IMG_20160628_111357.jpg" />
+    <Content Include="Images\55\Extra Images\IMG_20160628_111416.jpg" />
+    <Content Include="Images\55\Extra Images\IMG_20160628_112526.jpg" />
+    <Content Include="Images\55\IMG_20160628_110705.jpg" />
+    <Content Include="Images\55\IMG_20160628_110732.jpg" />
+    <Content Include="Images\55\IMG_20160628_111014.jpg" />
+    <Content Include="Images\55\thumbnail.jpg" />
+    <Content Include="Images\56\Extra Images\IMG_20160629_095656.jpg" />
+    <Content Include="Images\56\Extra Images\IMG_20160629_095701.jpg" />
+    <Content Include="Images\56\Extra Images\IMG_20160629_095820.jpg" />
+    <Content Include="Images\56\Extra Images\IMG_20160629_100118.jpg" />
+    <Content Include="Images\56\Extra Images\IMG_20160629_100200.jpg" />
+    <Content Include="Images\56\Extra Images\IMG_20160629_100335.jpg" />
+    <Content Include="Images\56\Extra Images\IMG_20160629_100436.jpg" />
+    <Content Include="Images\56\IMG_20160629_100345.jpg" />
+    <Content Include="Images\56\IMG_20160629_100402.jpg" />
+    <Content Include="Images\56\IMG_20160629_100453.jpg" />
+    <Content Include="Images\56\thumbnail.jpg" />
+    <Content Include="Images\57\Extra Images\IMG_20160629_101846.jpg" />
+    <Content Include="Images\57\Extra Images\IMG_20160629_101852.jpg" />
+    <Content Include="Images\57\Extra Images\IMG_20160629_101858.jpg" />
+    <Content Include="Images\57\Extra Images\IMG_20160629_101929.jpg" />
+    <Content Include="Images\57\Extra Images\IMG_20160629_101939.jpg" />
+    <Content Include="Images\57\Extra Images\IMG_20160629_102014.jpg" />
+    <Content Include="Images\57\Extra Images\IMG_20160629_102034.jpg" />
+    <Content Include="Images\57\Extra Images\IMG_20160629_102107.jpg" />
+    <Content Include="Images\57\Extra Images\IMG_20160629_102142.jpg" />
+    <Content Include="Images\57\Extra Images\IMG_20160629_102335.jpg" />
+    <Content Include="Images\57\Extra Images\IMG_20160629_102338.jpg" />
+    <Content Include="Images\57\Extra Images\IMG_20160629_102410.jpg" />
+    <Content Include="Images\57\Extra Images\IMG_20160629_102438.jpg" />
+    <Content Include="Images\57\Extra Images\IMG_20160629_102529.jpg" />
+    <Content Include="Images\57\Extra Images\IMG_20160629_102621.jpg" />
+    <Content Include="Images\57\Extra Images\IMG_20160629_102631.jpg" />
+    <Content Include="Images\57\Extra Images\IMG_20160629_102636.jpg" />
+    <Content Include="Images\57\IMG_20160629_101909.jpg" />
+    <Content Include="Images\57\IMG_20160629_101917.jpg" />
+    <Content Include="Images\57\IMG_20160629_101947.jpg" />
+    <Content Include="Images\57\thumbnail.jpg" />
+    <Content Include="Images\58\Extra Images\IMG_20160629_121156.jpg" />
+    <Content Include="Images\58\Extra Images\IMG_20160629_121210.jpg" />
+    <Content Include="Images\58\Extra Images\IMG_20160629_121224.jpg" />
+    <Content Include="Images\58\Extra Images\IMG_20160629_121239.jpg" />
+    <Content Include="Images\58\Extra Images\IMG_20160629_121312.jpg" />
+    <Content Include="Images\58\Extra Images\IMG_20160629_121353.jpg" />
+    <Content Include="Images\58\Extra Images\IMG_20160629_121402.jpg" />
+    <Content Include="Images\58\Extra Images\IMG_20160629_121424.jpg" />
+    <Content Include="Images\58\Extra Images\IMG_20160629_121441.jpg" />
+    <Content Include="Images\58\Extra Images\IMG_20160629_121458.jpg" />
+    <Content Include="Images\58\Extra Images\IMG_20160629_121535.jpg" />
+    <Content Include="Images\58\Extra Images\IMG_20160629_121540.jpg" />
+    <Content Include="Images\58\Extra Images\IMG_20160629_121550.jpg" />
+    <Content Include="Images\58\Extra Images\IMG_20160629_121604.jpg" />
+    <Content Include="Images\58\Extra Images\IMG_20160629_121654.jpg" />
+    <Content Include="Images\58\Extra Images\IMG_20160629_121707.jpg" />
+    <Content Include="Images\58\Extra Images\IMG_20160629_121746.jpg" />
+    <Content Include="Images\58\Extra Images\IMG_20160629_121941.jpg" />
+    <Content Include="Images\58\Extra Images\IMG_20160629_121950.jpg" />
+    <Content Include="Images\58\IMG_20160629_121325.jpg" />
+    <Content Include="Images\58\IMG_20160629_121639.jpg" />
+    <Content Include="Images\58\IMG_20160629_121806.jpg" />
+    <Content Include="Images\58\thumbnail.jpg" />
+    <Content Include="Images\59\Extra Images\IMG_20160629_123942.jpg" />
+    <Content Include="Images\59\Extra Images\IMG_20160629_124007.jpg" />
+    <Content Include="Images\59\Extra Images\IMG_20160629_124021.jpg" />
+    <Content Include="Images\59\Extra Images\IMG_20160629_124030.jpg" />
+    <Content Include="Images\59\Extra Images\IMG_20160629_124037.jpg" />
+    <Content Include="Images\59\Extra Images\IMG_20160629_124044.jpg" />
+    <Content Include="Images\59\Extra Images\IMG_20160629_124058.jpg" />
+    <Content Include="Images\59\Extra Images\IMG_20160629_124106.jpg" />
+    <Content Include="Images\59\Extra Images\IMG_20160629_124122.jpg" />
+    <Content Include="Images\59\Extra Images\IMG_20160629_124131.jpg" />
+    <Content Include="Images\59\Extra Images\IMG_20160629_124230.jpg" />
+    <Content Include="Images\59\Extra Images\IMG_20160629_124258.jpg" />
+    <Content Include="Images\59\Extra Images\IMG_20160629_124325.jpg" />
+    <Content Include="Images\59\Extra Images\IMG_20160629_124405.jpg" />
+    <Content Include="Images\59\Extra Images\IMG_20160629_124445.jpg" />
+    <Content Include="Images\59\Extra Images\IMG_20160629_124510.jpg" />
+    <Content Include="Images\59\Extra Images\IMG_20160629_124717.jpg" />
+    <Content Include="Images\59\Extra Images\IMG_20160629_124905.jpg" />
+    <Content Include="Images\59\Extra Images\IMG_20160629_124940.jpg" />
+    <Content Include="Images\59\Extra Images\IMG_20160629_124956.jpg" />
+    <Content Include="Images\59\Extra Images\IMG_20160629_125355.jpg" />
+    <Content Include="Images\59\IMG_20160629_124002.jpg" />
+    <Content Include="Images\59\IMG_20160629_124250.jpg" />
+    <Content Include="Images\59\IMG_20160629_124659.jpg" />
+    <Content Include="Images\59\thumbnail.jpg" />
+    <Content Include="Images\60\Extra Images\IMG_20160706_094213.jpg" />
+    <Content Include="Images\60\Extra Images\IMG_20160706_094413.jpg" />
+    <Content Include="Images\60\Extra Images\IMG_20160706_094526.jpg" />
+    <Content Include="Images\60\Extra Images\IMG_20160706_094536.jpg" />
+    <Content Include="Images\60\Extra Images\IMG_20160706_094604.jpg" />
+    <Content Include="Images\60\Extra Images\IMG_20160706_094620.jpg" />
+    <Content Include="Images\60\Extra Images\IMG_20160706_094633.jpg" />
+    <Content Include="Images\60\Extra Images\IMG_20160706_094655.jpg" />
+    <Content Include="Images\60\Extra Images\IMG_20160706_094711.jpg" />
+    <Content Include="Images\60\Extra Images\IMG_20160706_094722.jpg" />
+    <Content Include="Images\60\Extra Images\IMG_20160706_094734.jpg" />
+    <Content Include="Images\60\Extra Images\IMG_20160706_094751.jpg" />
+    <Content Include="Images\60\Extra Images\IMG_20160706_094822.jpg" />
+    <Content Include="Images\60\Extra Images\IMG_20160706_094958.jpg" />
+    <Content Include="Images\60\Extra Images\IMG_20160706_095028.jpg" />
+    <Content Include="Images\60\Extra Images\IMG_20160706_095037.jpg" />
+    <Content Include="Images\60\IMG_20160706_094552.jpg" />
+    <Content Include="Images\60\IMG_20160706_095008.jpg" />
+    <Content Include="Images\60\IMG_20160706_095119.jpg" />
+    <Content Include="Images\60\thumbnail.jpg" />
+    <Content Include="Images\61\Extra Images\IMG_20160706_090914.jpg" />
+    <Content Include="Images\61\Extra Images\IMG_20160706_090927.jpg" />
+    <Content Include="Images\61\Extra Images\IMG_20160706_090931.jpg" />
+    <Content Include="Images\61\Extra Images\IMG_20160706_091008.jpg" />
+    <Content Include="Images\61\Extra Images\IMG_20160706_091101.jpg" />
+    <Content Include="Images\61\Extra Images\IMG_20160706_091115.jpg" />
+    <Content Include="Images\61\Extra Images\IMG_20160706_091136.jpg" />
+    <Content Include="Images\61\Extra Images\IMG_20160706_091144.jpg" />
+    <Content Include="Images\61\Extra Images\IMG_20160706_091207.jpg" />
+    <Content Include="Images\61\Extra Images\IMG_20160706_091309.jpg" />
+    <Content Include="Images\61\Extra Images\IMG_20160706_091355.jpg" />
+    <Content Include="Images\61\Extra Images\IMG_20160706_091601.jpg" />
+    <Content Include="Images\61\IMG_20160706_091046.jpg" />
+    <Content Include="Images\61\IMG_20160706_091229.jpg" />
+    <Content Include="Images\61\IMG_20160706_091403.jpg" />
+    <Content Include="Images\61\thumbnail.jpg" />
+    <Content Include="Images\62\Extra Images\IMG_20160629_104402.jpg" />
+    <Content Include="Images\62\Extra Images\IMG_20160629_104416.jpg" />
+    <Content Include="Images\62\Extra Images\IMG_20160629_104432.jpg" />
+    <Content Include="Images\62\Extra Images\IMG_20160629_104459.jpg" />
+    <Content Include="Images\62\Extra Images\IMG_20160629_104506.jpg" />
+    <Content Include="Images\62\Extra Images\IMG_20160629_104522.jpg" />
+    <Content Include="Images\62\Extra Images\IMG_20160629_104619.jpg" />
+    <Content Include="Images\62\Extra Images\IMG_20160629_104711.jpg" />
+    <Content Include="Images\62\Extra Images\IMG_20160629_104813.jpg" />
+    <Content Include="Images\62\Extra Images\IMG_20160629_104830.jpg" />
+    <Content Include="Images\62\Extra Images\IMG_20160629_104842.jpg" />
+    <Content Include="Images\62\Extra Images\IMG_20160629_104858.jpg" />
+    <Content Include="Images\62\Extra Images\IMG_20160629_104903.jpg" />
+    <Content Include="Images\62\Extra Images\IMG_20160629_104924.jpg" />
+    <Content Include="Images\62\Extra Images\IMG_20160629_104934.jpg" />
+    <Content Include="Images\62\Extra Images\IMG_20160629_105009.jpg" />
+    <Content Include="Images\62\IMG_20160629_104441.jpg" />
+    <Content Include="Images\62\IMG_20160629_104540.jpg" />
+    <Content Include="Images\62\IMG_20160629_104914.jpg" />
+    <Content Include="Images\62\thumbnail.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_133024.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_133038.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_133336.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_133351.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_133437.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_133747.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_133812.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_133835.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_133846.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_133916.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_134006.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_134103.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_134131.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_134611.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_134650.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_134654.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_134659.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_134702.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_134712.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_135835.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_140005.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_140033.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_140100.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_140115.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_140211.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_140300.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_140323.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_140327.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_140344.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_140438.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_140457.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_140518.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_140606.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_140711.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_140721.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_141014.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_141034.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_141042.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_141048.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_141054.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_141106.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_141124.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_141228.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_141741.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_141850.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_141917.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_141939.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_142016.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_142138.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_142259.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_142318.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_142333.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_142406.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_142419.jpg" />
+    <Content Include="Images\63\Extra Images\IMG_20160629_142505.jpg" />
+    <Content Include="Images\63\IMG_20160629_133418.jpg" />
+    <Content Include="Images\63\IMG_20160629_133831.jpg" />
+    <Content Include="Images\63\IMG_20160629_142247.jpg" />
+    <Content Include="Images\63\thumbnail.jpg" />
+    <Content Include="Images\64\Extra Images\IMG_20160629_131159.jpg" />
+    <Content Include="Images\64\Extra Images\IMG_20160629_131213.jpg" />
+    <Content Include="Images\64\Extra Images\IMG_20160629_131454.jpg" />
+    <Content Include="Images\64\Extra Images\IMG_20160629_131539.jpg" />
+    <Content Include="Images\64\IMG_20160629_131250.jpg" />
+    <Content Include="Images\64\IMG_20160629_131330.jpg" />
+    <Content Include="Images\64\IMG_20160629_131510.jpg" />
+    <Content Include="Images\64\thumbnail.jpg" />
+    <Content Include="Images\65\Extra Images\IMG_20160706_101526.jpg" />
+    <Content Include="Images\65\Extra Images\IMG_20160706_101541.jpg" />
+    <Content Include="Images\65\Extra Images\IMG_20160706_101604.jpg" />
+    <Content Include="Images\65\Extra Images\IMG_20160706_101611.jpg" />
+    <Content Include="Images\65\Extra Images\IMG_20160706_101625.jpg" />
+    <Content Include="Images\65\Extra Images\IMG_20160706_101643.jpg" />
+    <Content Include="Images\65\Extra Images\IMG_20160706_101758.jpg" />
+    <Content Include="Images\65\Extra Images\IMG_20160706_101902.jpg" />
+    <Content Include="Images\65\Extra Images\IMG_20160706_102007.jpg" />
+    <Content Include="Images\65\Extra Images\IMG_20160706_102041.jpg" />
+    <Content Include="Images\65\Extra Images\IMG_20160706_102151.jpg" />
+    <Content Include="Images\65\IMG_20160706_101718.jpg" />
+    <Content Include="Images\65\IMG_20160706_101855.jpg" />
+    <Content Include="Images\65\IMG_20160706_102107.jpg" />
+    <Content Include="Images\65\thumbnail.jpg" />
+    <Content Include="Images\info.png" />
+    <Content Include="Images\mag.png" />
+    <Content Include="Images\marker.png" />
+    <Content Include="Images\park.jpg" />
+    <Content Include="Images\searchimg.png" />
+    <Content Include="Images\searching.png" />
+    <Content Include="Images\soon.png" />
+    <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\angular.js" />
+    <None Include="Properties\PublishProfiles\ecpat-parksearch - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\ecpat-parksearch - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\Webmap20170416020514 - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\Webmap20170416020514 - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\Webmap20170416020514 - Web Deploy.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Parks\Index.cshtml" />
+    <Content Include="Views\Parks\Details.cshtml" />
+    <Content Include="Views\Parks\Results.cshtml" />
+    <Content Include="Views\Parks\Filter.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>36898</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:36898/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

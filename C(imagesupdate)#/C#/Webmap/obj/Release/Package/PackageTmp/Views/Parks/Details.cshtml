@@ -1,0 +1,185 @@
+﻿@model Webmap.Models.Park
+@using Webmap.Models;
+@using Newtonsoft.Json;
+@{
+    ViewBag.Title = "Park Details";
+}
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOJOJHx6AZoXF2rQVV0_1vBKgeDykAOMU&callback=initMap">
+</script>
+
+@{
+    List<Park> jParks = new List<Park>();
+
+
+    Park addpark = new Park();
+    addpark.Lng = Model.Lng;
+    addpark.Lat = Model.Lat;
+    addpark.Name = Model.Name;
+    addpark.Desc = Model.Desc;
+    addpark.City = Model.City;
+    addpark.State = Model.State;
+    addpark.Street_1 = Model.Street_1;
+    addpark.pID = Model.pID;
+    addpark.Country = Model.Country;
+    addpark.ID = Model.ID;
+    addpark.Postal = Model.Postal;
+    jParks.Add(addpark);
+
+}
+<!-- Enclose the Javascript in a "section" so that it is rendered in the correct order after scripts have been loaded etc -->
+@section scripts {
+    <section class="scripts">
+
+        <script type="text/javascript">
+
+    //<!-- This code tells the browser to execute the "Initialize" method only when the complete document model has been loaded. -->
+            addEventListener('onload',initMap())
+
+            function initMap() {
+                var parks = @Html.Raw(Json.Encode(jParks));
+
+                // Google has tweaked their interface somewhat - this tells the api to use that new UI
+                google.maps.visualRefresh = true;
+                var Augusta = new google.maps.LatLng(33.4735, -82.0105);
+
+                // These are options that set initial zoom level, where the map is centered globally to start, and the type of map to show
+                var mapOptions = {
+                    zoom: 10,
+                    center: Augusta,
+                    mapTypeId: google.maps.MapTypeId.G_NORMAL_MAP
+                };
+
+                // This makes the div with id "map_canvas" a google map
+                var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+                var data="";
+                // Using the JQuery "each" selector to iterate through the JSON list and drop marker pins
+                //$('#checkbox').change(funciton(){    });
+                $.each(parks, function (i, item) {
+                    var marker = new google.maps.Marker({
+                        'position': new google.maps.LatLng(item.Lat, item.Lng),//(item.GeoLong, item.GeoLat),
+                        'map': map,
+                        'title': item.Name
+                    });
+
+                    // Make the marker-pin blue!
+                    marker.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png')
+
+                    var link = '<a href="http://maps.google.com/maps?saddr=Current+Location&daddr='+item.Street_1+', '+item.City+', '+item.State+'">Get Directions</a>'
+                    var img = '<img src="/Images/'+item.pID+'/thumbnail.jpg" width="160" height="170" alt="Lorem ipsum" />'
+                    var pAddress = item.Street_1+', '+item.City+', '+item.State+' '+item.Postal
+                    var detPage = '<a href="/Parks/Details/'+item.ID+'">More Information</a>'
+
+
+                    // put in some information about each json object - in this case, the opening hours.
+                    var infowindow = new google.maps.InfoWindow({
+
+                        content: "<div class='infoDiv'><h2>" + item.Name +"</h2>"+img+"<br />"+pAddress+"<br />"+detPage+"<br />"+link+"</div></div>"
+                    });
+
+                    // finally hook up an "OnClick" listener to the map so it pops up out info-window when the marker-pin is clicked!
+                    google.maps.event.addListener(marker, 'click', function () {
+                        infowindow.open(map, marker);
+                    });
+
+                })
+            }
+        </script>
+    </section>
+}
+<br>
+<br>
+<br>
+<h2>eCPAT <strong>Park</strong> Information</h2>
+<div id="map_canvas" style="height: 350px; position:relative; border-color:seagreen; border-style:ridge"></div>
+<br>
+<div class="details">
+    <hr>
+<h3>Park Name</h3>
+@Html.DisplayFor(model => model.Name)    
+<h3>Park Size</h3>     
+@Html.DisplayFor(model => model.Desc)
+<h3>Address</h3>   
+@Html.DisplayFor(model => model.Street_1)
+<br>
+@Html.DisplayFor(model => model.City)
+@Html.DisplayFor(model => model.State)
+@Html.DisplayFor(model => model.Postal) 
+    <br>
+    <img style="width:45px;" src="~/Images/marker.png" border="0" />
+    <a href='@string.Format("http://maps.google.com/maps?saddr=Current+Location&daddr={0} {1} {2}", Model.Street_1, Model.City, Model.State)'><strong>Get Directions To This Park</strong></a>
+    <hr> 
+<h3>Activity Areas</h3>
+<ul>
+@foreach (var x in Model.ParkAmenities)
+{
+    if (x.Amenity.Type == "f")
+    {
+        <li>@x.Amenity.AmenityName</li>
+    }
+}
+</ul>
+<section id="photos">
+<img src="~/Images/@ViewBag.Image1" alt="" width="160" height="170"  style="border-radius: 25px"/>
+<img src="~/Images/@ViewBag.Image2" alt="" width="160" height="170"  style="border-radius: 25px"/>
+<img src="~/Images/@ViewBag.Image3" alt="" width="160" height="170"  style="border-radius: 25px"/>
+</section>
+<h3>Park Facilities</h3>
+<ul>
+@foreach (var x in Model.ParkAmenities)
+{
+    if (x.Amenity.Type == "a")
+    {
+        <li>@x.Amenity.AmenityName</li>
+    }
+}
+</ul>
+    
+        <br>
+       
+         <br>
+    
+</div>
+        <div id="disqus_thread"></div>
+        <script>
+
+            /**
+
+             *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+
+             *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+
+             */
+
+
+
+            var disqus_config = function () {
+
+                this.page.url = @Url.ToString();  // Replace PAGE_URL with your page's canonical URL variable
+
+                this.page.identifier = document.getElementById; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+
+            };
+
+
+
+            (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+
+                var d = document, s = d.createElement('script');
+
+
+
+                s.src = 'https://Ecpat.disqus.com/embed.js';  // IMPORTANT: Replace EXAMPLE with your forum shortname!
+
+
+
+                s.setAttribute('data-timestamp', +new Date());
+
+                (d.head || d.body).appendChild(s);
+
+            })();
+
+        </script>
+
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+

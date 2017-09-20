@@ -1,0 +1,201 @@
+﻿@using Webmap.Models;
+@using Newtonsoft.Json;
+@using Newtonsoft.Json.Serialization ;
+
+@model IEnumerable<Webmap.Models.Park>
+
+@{
+    ViewBag.Title = "Filter";
+}
+
+
+@{
+    var parks = "[";
+    foreach (var item in Model)
+    {
+        parks += @"{""PlaceName"":" + Json.Encode(item.Name) + @",""GeoLong"":" + item.Lng + @",""GeoLat"":" + item.Lat + "},";
+    }
+    parks += "]";
+    parks = JsonConvert.SerializeObject(parks);
+
+}
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOJOJHx6AZoXF2rQVV0_1vBKgeDykAOMU&callback=initMap">
+</script>
+
+<style>
+    #map_canvas img {
+        max-width: 60%;
+    }
+</style>
+
+<!-- This css is to give a nice big popup "info window" when a marker is clicked on the map -->
+<style>
+    .infoDiv {
+        height: 200px;
+        width: 300px;
+        -webkit-user-select: none;
+        background-color: white;
+    }
+</style>
+<br />
+
+
+<!-- Enclose the Javascript in a "section" so that it is rendered in the correct order after scripts have been loaded etc -->
+@section scripts {
+    <section class="scripts">
+
+        <script type="text/javascript">
+
+    //<!-- This code tells the browser to execute the "Initialize" method only when the complete document model has been loaded. -->
+    $(document).ready(function () {
+        initMap();
+    });
+
+    // Where all the fun happens
+    function initMap() {
+
+        // Google has tweaked their interface somewhat - this tells the api to use that new UI
+        google.maps.visualRefresh = true;
+        var Pendleton = new google.maps.LatLng(33.45887, -82.01263);
+
+        // These are options that set initial zoom level, where the map is centered globally to start, and the type of map to show
+        var mapOptions = {
+            zoom: 13,
+            center: Pendleton,
+            mapTypeId: google.maps.MapTypeId.G_NORMAL_MAP
+        };
+
+        // This makes the div with id "map_canvas" a google map
+        var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+        var data="";
+        // Using the JQuery "each" selector to iterate through the JSON list and drop marker pins
+        $.each(data, function (i, item) {
+            var marker = new google.maps.Marker({
+                'position': new google.maps.LatLng(item.GeoLong, item.GeoLat),
+                'map': map,
+                'title': item.PlaceName
+            });
+
+            // Make the marker-pin blue!
+            marker.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png')
+
+            // put in some information about each json object - in this case, the opening hours.
+            var infowindow = new google.maps.InfoWindow({
+                content: "<div class='infoDiv'><h2>" + item.PlaceName + "</div></div>"
+            });
+
+            // finally hook up an "OnClick" listener to the map so it pops up out info-window when the marker-pin is clicked!
+            google.maps.event.addListener(marker, 'click', function () {
+                infowindow.open(map, marker);
+            });
+
+        })
+    }
+
+
+        </script>
+    </section>
+
+
+}
+
+<h2><strong>Park</strong> Search</h2>
+<!-- This is the div that will contain the Google Map -->
+<div id="map_canvas" style="height: 350px;border-style:ridge"></div>
+<div class="row">
+    <div class="col-sm-2">
+        <br />
+        New Search
+        <div id="input-box">
+            <form method="get" action="~/Parks/Results">
+                <input type="text" name="SearchString" size="15" placeholder="New Search" autocomplete="on">
+                <br>
+                Select Search Radius:<input type="checkbox" name="checkbox" value=1.770328> 1 mile
+                <input type="checkbox" name="checkbox" value=8.04672> 5 miles
+                <input type="checkbox" name="checkbox" value=16.09344> 10 miles
+            </form>
+        </div><br /> &nbsp; &nbsp;
+<br /><br />
+         &nbsp; <br />
+        Filter Results by Amenities:
+        <hr />
+        <form action="~/Parks/Filter" method="get">
+            <input type="checkbox" name="checkbox" value="Park Info Signs"> Park Info Signs<br>
+            <input type="checkbox" name="checkbox" value="Bathroom"> Public Transit Stop<br>
+            <input type="checkbox" name="checkbox" value="Basketball Court"> Parking<br>
+            <input type="checkbox" name="checkbox" value="Baseball Field">Sidewalks<br>
+            <input type="checkbox" name="checkbox" value="Trashcan">Sport Field(Soccer/Football)<br>
+            <input type="checkbox" name="checkbox" value="RunningTrail"> Baseball Field<br>
+            <input type="checkbox" name="checkbox" value="Bathroom">Swimming Pool<br>
+            <input type="checkbox" name="checkbox" value="Basketball Court">Splash Pad<br>
+            <input type="checkbox" name="checkbox" value="Baseball Field">Tennis Court<br>
+            <input type="checkbox" name="checkbox" value="Trashcan"> Volleyball Court<br>
+            <input type="checkbox" name="checkbox" value="RunningTrail"> Trail<br>
+            <input type="checkbox" name="checkbox" value="Bathroom"> Fitness Equipment/Stations<br>
+            <input type="checkbox" name="checkbox" value="Basketball Court"> Skate Park<br>
+            <input type="checkbox" name="baseball" value="Baseball Field"> Off-leash Dog Park<br>
+            <input type="checkbox" name="trashcan" value="Trashcan"> Open/Green Space<br>
+            <input type="checkbox" name="runningtrail" value="RunningTrail">  Lake<br>
+            <input type="checkbox" name="bathroom" value="Bathroom">Restrooms<br>
+            <input type="checkbox" name="basketball" value="Basketball Court"> Drinking Fountains<br>
+            <input type="checkbox" name="baseball" value="Baseball Field">Benches<br>
+            <input type="checkbox" name="trashcan" value="Trashcan">Trash Cans<br>
+            <input type="checkbox" name="trashcan" value="Trashcan"> Picnic Tables<br>
+            <input type="checkbox" name="trashcan" value="Trashcan"> Food/Vending Machines<br>
+            <input type="checkbox" name="trashcan" value="Trashcan"> Lights<br>
+            <input type="checkbox" name="trashcan" value="Trashcan">  Emergency Devices<br>
+           <br /><br />
+            <input type="submit" name="Filter">
+        </form>
+    </div>
+    <div class="col-sm-10">
+        <div class="container">
+            <hgroup class="mb20">
+                <h1>Search Results</h1>
+               @{int count = 0; }
+                @foreach (var item in Model)
+                {
+                    count++;
+                }
+                <h2 class="lead"><strong class="text-danger">@(count) </strong> park results were found<strong class="text-danger"></strong></h2>
+            </hgroup>
+
+            <section class="col-xs-12 col-sm-6 col-md-12">
+                @foreach (var item in Model)
+                {
+                    var prkName = item.Name;
+                    var pID = item.pID;
+                    var parkName = pID;// to get park folder
+                    var pathname = "~/Images/" + parkName;
+                    var filename = Server.MapPath(pathname);//to create physical path for server to read
+
+                    DirectoryInfo di = new DirectoryInfo(filename);//creates directory reference
+                    if (di.Exists)
+                    {
+                        FileInfo[] fiarray = di.GetFiles();//creates array of files in given directory reference
+                        ViewBag.Image1 = parkName + "/" + fiarray[0].Name;
+                    }
+                    <article class="search-result row">
+                        <div class="col-xs-12 col-sm-12 col-md-3">
+                            <a href="@Url.Action("Details","Park", new { id = item.ID })" title="Lorem ipsum" class="thumbnail"><img src="~/Images/@ViewBag.Image1" alt="Lorem ipsum" /></a>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
+                            <h3><a href="@Url.Action("Details","Parks", new { id = item.ID })" title="">@Html.DisplayFor(modelItem => item.Name)</a></h3>
+                            @Html.DisplayFor(modelItem => item.Desc)
+                            @Html.DisplayFor(modelItem => item.Street_1)
+                            @Html.DisplayFor(modelItem => item.City)
+                            @Html.DisplayFor(modelItem => item.State)
+                            @Html.DisplayFor(modelItem => item.Postal)
+                            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                            <a href='@string.Format("http://maps.google.com/maps?daddr={0} {1} {2}", item.Street_1, item.City, item.State)'>Get Directions</a>
+
+                         </div>
+                        <span class="clearfix borda"></span>
+                    </article>
+                    <hr>
+                }
+            </section>
+        </div>
+    </div>
+</div>
